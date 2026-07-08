@@ -1,4 +1,434 @@
 {
   "id": "male",
-  "questions": []
+  "questions": [
+    {
+      "id": "age_range",
+      "type": "single",
+      "title": "Ajuste o seu plano de acordo com a sua idade",
+      "options": [
+        { "id": "18-25", "label": "18 a 25 anos", "emoji": "💪" },
+        { "id": "26-35", "label": "26 a 35 anos", "emoji": "🧔" },
+        { "id": "36-45", "label": "36 a 45 anos", "emoji": "👨" },
+        { "id": "46+", "label": "+46 anos", "emoji": "👨‍🦳" }
+      ]
+    },
+    {
+      "id": "social_proof_1",
+      "type": "info",
+      "title": "+45 mil pessoas",
+      "subtitle": "escolheram o Seca Jejum Turbo",
+      "content": "trio_men"
+    },
+    {
+      "id": "main_goal",
+      "type": "single",
+      "title": "Qual é o seu objetivo principal?",
+      "options": [
+        { "id": "lose_weight", "label": "Perder peso", "emoji": "🤟" },
+        { "id": "get_fit", "label": "Ficar em forma", "emoji": "👌" },
+        { "id": "heart", "label": "Melhorar a saúde do coração", "emoji": "🫀" },
+        { "id": "stress", "label": "Aliviar o estresse", "emoji": "🧘" }
+      ]
+    },
+    {
+      "id": "current_body",
+      "type": "single",
+      "title": "Como você descreveria seu físico?",
+      "options": [
+        { "id": "skinny", "label": "Magro", "emoji": "🧍" },
+        { "id": "flabby", "label": "Flácido", "emoji": "🫃" },
+        { "id": "few_kilos", "label": "Uns quilinhos a mais", "emoji": "🙂" },
+        { "id": "obese", "label": "Obeso", "emoji": "😔" }
+      ]
+    },
+    {
+      "id": "goal_body",
+      "type": "single",
+      "title": "Qual é o seu objetivo corporal?",
+      "options": [
+        { "id": "skinny", "label": "Magro", "emoji": "🧍" },
+        { "id": "in_shape", "label": "Em forma", "emoji": "💪" },
+        { "id": "defined", "label": "Definido", "emoji": "🏋️" },
+        { "id": "ripped", "label": "Rasgado", "emoji": "🔥" }
+      ]
+    },
+    {
+      "id": "info_healthy",
+      "type": "info",
+      "title": "Sabemos como mantê-lo em forma e saudável a longo prazo",
+      "content": "energy_chart"
+    },
+    {
+      "id": "body_areas",
+      "type": "multi",
+      "title": "Quais áreas do corpo você quer focar?",
+      "minSelected": 1,
+      "options": [
+        { "id": "arms", "label": "Braços", "emoji": "💪" },
+        { "id": "chest", "label": "Peito", "emoji": "🫁" },
+        { "id": "belly", "label": "Barriga", "emoji": "🧍‍♂️" },
+        { "id": "legs", "label": "Pernas", "emoji": "🦵" },
+        { "id": "back", "label": "Costas", "emoji": "🤸" }
+      ]
+    },
+    {
+      "id": "last_best_form",
+      "type": "single",
+      "title": "Faz quanto tempo que você se sentiu na sua melhor forma?",
+      "options": [
+        { "id": "0-6m", "label": "0 a 6 meses atrás" },
+        { "id": "7-12m", "label": "7 a 12 meses atrás" },
+        { "id": "1-3y", "label": "1 a 3 anos atrás" },
+        { "id": "3y+", "label": "Mais de 3 anos atrás" }
+      ]
+    },
+    {
+      "id": "info_metabolism",
+      "type": "info",
+      "title": "68% das mudanças de peso são influenciadas pelo seu metabolismo",
+      "subtitle": "Mas boas notícias — você está no controle! Ao gerenciar sua ingestão calórica diária, gastos e atividade, você pode atingir suas metas, e estamos aqui para ajudar você",
+      "content": "metabolism_chart"
+    },
+    {
+      "id": "what_describes",
+      "type": "single",
+      "title": "O que mais te descreve?",
+      "options": [
+        { "id": "hard_gain_muscle", "label": "Tenho dificuldade em ganhar músculos", "emoji": "🙄" },
+        { "id": "easy_both", "label": "Eu ganho e perco sem esforço", "emoji": "💪" },
+        { "id": "easy_gain_hard_lose", "label": "Eu ganho peso facilmente, mas tenho dificuldade para perder", "emoji": "🥴" }
+      ]
+    },
+    {
+      "id": "knowledge_fasting",
+      "type": "single",
+      "title": "O que você sabe sobre o jejum intermitente?",
+      "options": [
+        { "id": "none", "label": "Não sei nada", "emoji": "🤔" },
+        { "id": "some", "label": "Já ouvi falar um pouco", "emoji": "🤷" },
+        { "id": "a_lot", "label": "Entendo bastante", "emoji": "😎" }
+      ]
+    },
+    {
+      "id": "breakfast_time",
+      "type": "single",
+      "title": "Quando você costuma tomar seu café da manhã?",
+      "options": [
+        { "id": "6-8", "label": "Entre 6 e 8 da manhã", "emoji": "🍓" },
+        { "id": "8-10", "label": "Entre 8 e 10 da manhã", "emoji": "🥗" },
+        { "id": "10-12", "label": "Entre 10h e meio-dia", "emoji": "🍳" },
+        { "id": "skip", "label": "Eu costumo pular o café da manhã", "emoji": "☕" }
+      ]
+    },
+    {
+      "id": "lunch_time",
+      "type": "single",
+      "title": "Quando você costuma almoçar?",
+      "options": [
+        { "id": "10-12", "label": "Entre 10h e 12h", "emoji": "🥗" },
+        { "id": "12-14", "label": "Entre 12h e 14h", "emoji": "🥑" },
+        { "id": "14-16", "label": "Entre 14h e 16h", "emoji": "🍤" },
+        { "id": "skip", "label": "Eu costumo pular o almoço", "emoji": "🥛" }
+      ]
+    },
+    {
+      "id": "dinner_time",
+      "type": "single",
+      "title": "Quando você janta?",
+      "options": [
+        { "id": "16-18", "label": "Entre 16h e 18h", "emoji": "🥗" },
+        { "id": "18-20", "label": "Entre 18h e 20h", "emoji": "🥙" },
+        { "id": "20-22", "label": "Entre 20h e 22h", "emoji": "🥑" },
+        { "id": "skip", "label": "Eu costumo pular o jantar", "emoji": "🥛" }
+      ]
+    },
+    {
+      "id": "food_restriction",
+      "type": "multi",
+      "title": "Você tem alguma restrição alimentar?",
+      "options": [
+        { "id": "lactose", "label": "Sem lactose", "description": "Eu não consumo alimentos com lactose", "emoji": "🍼" },
+        { "id": "gluten", "label": "Sem glúten", "description": "Eu evito grãos com glúten", "emoji": "🍩" },
+        { "id": "vegetarian", "label": "Vegetariano", "description": "Eu não como carne", "emoji": "🥦" },
+        { "id": "vegan", "label": "Vegano", "description": "Eu não consumo produto de origem animal", "emoji": "🌱" },
+        { "id": "no_fish", "label": "Nenhum peixe", "description": "Não como nenhum tipo de peixe", "emoji": "🐟" },
+        { "id": "none", "label": "Nenhuma das acima", "description": "Eu como quase tudo", "emoji": "❌" }
+      ]
+    },
+    {
+      "id": "favorite_foods",
+      "type": "multi",
+      "title": "Escolha as comidas que você gosta",
+      "layout": "grid",
+      "options": [
+        { "id": "tomate", "label": "Tomate", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "pepino", "label": "Pepino", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "cebola", "label": "Cebola", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "pimentao", "label": "Pimentão", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "cenoura", "label": "Cenoura", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "alface", "label": "Alface", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "espinafre", "label": "Espinafre", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "cogumelos", "label": "Cogumelos", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "abobrinha", "label": "Abobrinha", "group": "Vegetais", "groupEmoji": "🥬" },
+        { "id": "arroz", "label": "Arroz", "group": "Grãos e Pães", "groupEmoji": "🍞" },
+        { "id": "espaguete", "label": "Espaguete", "group": "Grãos e Pães", "groupEmoji": "🍞" },
+        { "id": "pao_integral", "label": "Pão integral", "group": "Grãos e Pães", "groupEmoji": "🍞" },
+        { "id": "cuscuz", "label": "Cuscuz", "group": "Grãos e Pães", "groupEmoji": "🍞" },
+        { "id": "aveia", "label": "Aveia", "group": "Grãos e Pães", "groupEmoji": "🍞" },
+        { "id": "quinoa", "label": "Quinoa", "group": "Grãos e Pães", "groupEmoji": "🍞" },
+        { "id": "ovo", "label": "Ovo", "group": "Carnes e ovos", "groupEmoji": "🥩" },
+        { "id": "frango", "label": "Frango", "group": "Carnes e ovos", "groupEmoji": "🥩" },
+        { "id": "presunto", "label": "Presunto", "group": "Carnes e ovos", "groupEmoji": "🥩" },
+        { "id": "peru", "label": "Peito de peru", "group": "Carnes e ovos", "groupEmoji": "🥩" },
+        { "id": "boi", "label": "Carne de boi", "group": "Carnes e ovos", "groupEmoji": "🥩" },
+        { "id": "porco", "label": "Carne de porco", "group": "Carnes e ovos", "groupEmoji": "🥩" },
+        { "id": "salmao", "label": "Salmão", "group": "Peixe", "groupEmoji": "🐟" },
+        { "id": "atum", "label": "Atum", "group": "Peixe", "groupEmoji": "🐟" },
+        { "id": "tilapia", "label": "Tilápia", "group": "Peixe", "groupEmoji": "🐟" },
+        { "id": "camarao", "label": "Camarão", "group": "Peixe", "groupEmoji": "🐟" },
+        { "id": "truta", "label": "Truta", "group": "Peixe", "groupEmoji": "🐟" },
+        { "id": "leite", "label": "Leite", "group": "Lacticínio", "groupEmoji": "🥛" },
+        { "id": "mucarela", "label": "Muçarela", "group": "Lacticínio", "groupEmoji": "🥛" },
+        { "id": "iogurte", "label": "Iogurte", "group": "Lacticínio", "groupEmoji": "🥛" },
+        { "id": "queijo", "label": "Queijo", "group": "Lacticínio", "groupEmoji": "🥛" },
+        { "id": "tofu", "label": "Tofu", "group": "Lacticínio", "groupEmoji": "🥛" },
+        { "id": "requeijao", "label": "Requeijão", "group": "Lacticínio", "groupEmoji": "🥛" },
+        { "id": "parmesao", "label": "Parmesão", "group": "Lacticínio", "groupEmoji": "🥛" },
+        { "id": "abacate", "label": "Abacate", "group": "Frutas", "groupEmoji": "🍎" },
+        { "id": "maca", "label": "Maçã", "group": "Frutas", "groupEmoji": "🍎" },
+        { "id": "pera", "label": "Pera", "group": "Frutas", "groupEmoji": "🍎" },
+        { "id": "banana", "label": "Banana", "group": "Frutas", "groupEmoji": "🍎" },
+        { "id": "manga", "label": "Manga", "group": "Frutas", "groupEmoji": "🍎" },
+        { "id": "laranja", "label": "Laranja", "group": "Frutas", "groupEmoji": "🍎" },
+        { "id": "morango", "label": "Morango", "group": "Frutas", "groupEmoji": "🍎" }
+      ]
+    },
+    {
+      "id": "cook_or_eat_out",
+      "type": "single",
+      "title": "Você prefere cozinhar, comer fora ou pedir comida?",
+      "options": [
+        { "id": "cook", "label": "Cozinhar em casa", "emoji": "🍲" },
+        { "id": "restaurant", "label": "Eu prefiro ir a um restaurante", "emoji": "🍽️" },
+        { "id": "delivery", "label": "Gosto de pedir comida", "emoji": "🍟" },
+        { "id": "mix", "label": "Eu faço um pouco de tudo", "emoji": "😋" }
+      ]
+    },
+    {
+      "id": "weekend_break",
+      "type": "single",
+      "title": "Você precisa de uma pausa no Jejum para o final de semana?",
+      "options": [
+        { "id": "yes", "label": "Claro que sim! Final de semana é para curtir", "emoji": "👌" },
+        { "id": "no", "label": "Não paro nem no fim de semana!", "emoji": "💪" }
+      ]
+    },
+    {
+      "id": "exercise_freq",
+      "type": "single",
+      "title": "Com que frequência você se exercita?",
+      "options": [
+        { "id": "daily", "label": "Quase todos os dias" },
+        { "id": "weekly", "label": "Várias vezes por semana" },
+        { "id": "monthly", "label": "Várias vezes por mês" },
+        { "id": "never", "label": "Nunca" }
+      ]
+    },
+    {
+      "id": "work_routine",
+      "type": "single",
+      "title": "Como é a sua rotina de trabalho?",
+      "options": [
+        { "id": "9to18", "label": "das 09:00 às 18:00" },
+        { "id": "night", "label": "Turnos noturnos" },
+        { "id": "flexible", "label": "Meu horário é flexível" },
+        { "id": "retired", "label": "Estou aposentado" }
+      ]
+    },
+    {
+      "id": "day_to_day",
+      "type": "single",
+      "title": "Como você descreve o seu dia a dia?",
+      "options": [
+        { "id": "sitting", "label": "Eu passo a maior parte do dia sentado", "emoji": "💻" },
+        { "id": "mixed", "label": "Um pouco sentado e um pouco caminhando", "emoji": "🪑" },
+        { "id": "standing", "label": "Fico em pé o dia todo", "emoji": "🚶" }
+      ]
+    },
+    {
+      "id": "stairs_breath",
+      "type": "single",
+      "title": "Você fica sem fôlego depois de subir um lance de escadas?",
+      "options": [
+        { "id": "very", "label": "Fico tão sem fôlego que não consigo falar", "emoji": "🥵" },
+        { "id": "some", "label": "Fico um pouco sem fôlego, mas consigo falar", "emoji": "💨" },
+        { "id": "ok", "label": "Fico bem depois de um lance de escadas", "emoji": "🙂" },
+        { "id": "easy", "label": "Eu consigo subir alguns lances de escada facilmente", "emoji": "🚀" }
+      ]
+    },
+    {
+      "id": "walk_freq",
+      "type": "single",
+      "title": "Com que frequência você sai para caminhar?",
+      "options": [
+        { "id": "daily", "label": "Quase todos os dias", "emoji": "😎" },
+        { "id": "3-4wk", "label": "3 a 4 vezes por semana", "emoji": "💪" },
+        { "id": "1-2wk", "label": "1 a 2 vezes por semana", "emoji": "🙂" },
+        { "id": "monthly", "label": "Mais de uma vez por mês", "emoji": "👍" }
+      ]
+    },
+    {
+      "id": "sleep_hours",
+      "type": "single",
+      "title": "Quantas horas você costuma dormir?",
+      "options": [
+        { "id": "<5", "label": "Durmo pouco (menos de 5 horas)" },
+        { "id": "5-6", "label": "Eu consigo dormir um pouco (5-6 horas)" },
+        { "id": "7-8", "label": "Eu durmo muito e bem (7-8 horas)" },
+        { "id": "8+", "label": "Gosto de dormir até mais tarde (mais de 8 horas)" }
+      ]
+    },
+    {
+      "id": "water_intake",
+      "type": "single",
+      "title": "Qual é a sua ingestão diária de água?",
+      "options": [
+        { "id": "coffee_only", "label": "Eu só tomo café ou chá" },
+        { "id": "~2", "label": "Cerca de 2 copos" },
+        { "id": "2-6", "label": "2 a 6 copos" },
+        { "id": "6+", "label": "Mais de 6 copos" }
+      ]
+    },
+    {
+      "id": "physical_issues",
+      "type": "multi",
+      "title": "Você tem algum desses problemas?",
+      "options": [
+        { "id": "knees", "label": "Joelhos sensíveis", "emoji": "🦵" },
+        { "id": "back", "label": "Costas sensíveis", "emoji": "🧘" },
+        { "id": "none", "label": "Nenhuma das acima", "emoji": "🧍" }
+      ]
+    },
+    {
+      "id": "bad_habits",
+      "type": "multi",
+      "title": "Você tem algum desses hábitos que podem estar atrapalhando sua vida?",
+      "options": [
+        { "id": "late_eat", "label": "Eu como tarde da noite", "emoji": "💤" },
+        { "id": "sweets", "label": "Não consigo parar de comer doces", "emoji": "🍫" },
+        { "id": "soda", "label": "Eu amo refrigerantes", "emoji": "🥤" },
+        { "id": "salty", "label": "Eu adoro alimentos gordurosos ou salgados", "emoji": "🧂" },
+        { "id": "none", "label": "Nenhuma das acima", "emoji": "❌" }
+      ]
+    },
+    {
+      "id": "info_face",
+      "type": "info",
+      "title": "Não é só o seu corpo! Veja como o Jejum pode mudar o seu rosto!",
+      "subtitle": "Perder peso através do jejum ajuda a reduzir gordura e inchaço no rosto, principalmente ao redor dos olhos, queixo e mandíbula, deixando sua pele com aparência mais jovem e saudável.",
+      "content": "face_transform"
+    },
+    {
+      "id": "weight_events",
+      "type": "multi",
+      "title": "Algum desses acontecimentos fez você ganhar peso nos últimos anos?",
+      "options": [
+        { "id": "marriage", "label": "Casamento ou relacionamento", "emoji": "👰" },
+        { "id": "routine", "label": "Rotina corrida com trabalho ou família", "emoji": "😩" },
+        { "id": "money", "label": "Dificuldades financeiras", "emoji": "💰" },
+        { "id": "injury", "label": "Lesão ou incapacidade", "emoji": "🏥" },
+        { "id": "stress", "label": "Estresse ou problemas de saúde mental", "emoji": "😖" },
+        { "id": "age", "label": "Metabolismo mais lento devido a idade", "emoji": "👴" },
+        { "id": "treatments", "label": "Complicações pós-tratamentos", "emoji": "🩺" },
+        { "id": "none", "label": "Nenhuma das acima", "emoji": "❌" }
+      ]
+    },
+    {
+      "id": "motivation",
+      "type": "single",
+      "title": "Quão motivado você está para perder peso?",
+      "options": [
+        { "id": "curious", "label": "Estou tentando fazer o jejum apenas por curiosidade", "emoji": "🥺" },
+        { "id": "determined", "label": "Estou determinado a diminuir um ou dois tamanhos", "emoji": "🤟" },
+        { "id": "ideal", "label": "Eu não vou parar até atingir meu peso ideal", "emoji": "🔥" }
+      ]
+    },
+    {
+      "id": "height",
+      "type": "slider",
+      "title": "Qual é a sua altura?",
+      "units": [
+        { "id": "cm", "label": "cm" },
+        { "id": "pol", "label": "pol" }
+      ],
+      "min": 140,
+      "max": 220,
+      "defaultValue": 175,
+      "step": 1
+    },
+    {
+      "id": "weight",
+      "type": "slider",
+      "title": "Qual é o seu peso atual?",
+      "units": [
+        { "id": "kg", "label": "kg" },
+        { "id": "lb", "label": "lb" }
+      ],
+      "min": 40,
+      "max": 180,
+      "defaultValue": 80,
+      "step": 1
+    },
+    {
+      "id": "age",
+      "type": "input",
+      "title": "Qual é a sua idade exata?",
+      "placeholder": "Digite sua idade...",
+      "inputType": "number",
+      "info": {
+        "title": "Vamos usar essa informação para criar seu plano personalizado!",
+        "body": "Pessoas mais velhas tendem a ter mais gordura corporal do que pessoas mais jovens com o mesmo IMC, por isso vamos personalizar para você."
+      }
+    },
+    {
+      "id": "bmi_summary",
+      "type": "special",
+      "title": "Resumo do seu nível de condicionamento físico",
+      "screen": "bmi_summary"
+    },
+    {
+      "id": "important_event",
+      "type": "single",
+      "title": "Você tem algum evento importante chegando?",
+      "subtitle": "Ter algo para esperar pode ser uma grande motivação para alcançar o seu objetivo!",
+      "options": [
+        { "id": "vacation", "label": "Férias", "emoji": "✈️" },
+        { "id": "wedding", "label": "Casamento", "emoji": "👰" },
+        { "id": "holiday", "label": "Feriado", "emoji": "🏖️" },
+        { "id": "sports", "label": "Evento esportivo", "emoji": "🏆" },
+        { "id": "friends", "label": "Encontro de amigos", "emoji": "🎂" },
+        { "id": "birthday", "label": "Aniversário", "emoji": "🥳" },
+        { "id": "other", "label": "Outro", "emoji": "🤷" },
+        { "id": "none", "label": "Não tenho nenhum evento", "emoji": "❌" }
+      ]
+    },
+    {
+      "id": "plan_preview",
+      "type": "special",
+      "title": "O único plano que você precisa para entrar em forma",
+      "screen": "plan_preview"
+    },
+    {
+      "id": "loading",
+      "type": "special",
+      "title": "Criando o seu Plano Personalizado de Jejum",
+      "screen": "loading"
+    },
+    {
+      "id": "result",
+      "type": "special",
+      "title": "O seu Plano Personalizado de Jejum está pronto!",
+      "screen": "result"
+    }
+  ]
 }
