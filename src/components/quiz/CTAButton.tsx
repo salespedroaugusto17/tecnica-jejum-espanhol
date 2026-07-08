@@ -10,7 +10,7 @@ export function CTAButton({ children, fullWidth = true, className = "", ...rest 
   return (
     <motion.button
       whileTap={{ scale: 0.98 }}
-      className={`cta-primary inline-flex h-13 items-center justify-center px-8 py-4 text-base disabled:cursor-not-allowed disabled:opacity-40 ${
+      className={`cta-primary inline-flex h-[52px] items-center justify-center px-8 text-base disabled:cursor-not-allowed disabled:opacity-40 ${
         fullWidth ? "w-full" : ""
       } ${className}`}
       {...(rest as object)}

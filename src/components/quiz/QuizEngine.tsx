@@ -242,7 +242,7 @@ function InputRenderer({ question, onSubmit }: { question: Question; onSubmit: (
         placeholder={question.placeholder}
         value={val}
         onChange={(e) => setVal(e.target.value)}
-        className="w-full rounded-full border-1.5 border-border bg-background px-5 py-3.5 text-[15px] italic text-muted-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:italic-none focus:outline-none"
+        className="w-full rounded-full border-2 border-border bg-background px-5 py-3.5 text-[15px] text-foreground placeholder:italic placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none"
       />
       {question.info && (
         <div className="mt-2 rounded-xl bg-info px-4 py-3 text-info-foreground">
