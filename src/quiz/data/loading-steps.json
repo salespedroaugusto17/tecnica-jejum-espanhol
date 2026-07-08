@@ -1,0 +1,9 @@
+{
+  "steps": [
+    { "label": "Analisando seu perfil metabólico...", "durationMs": 1400 },
+    { "label": "Cruzando dados de hábitos e objetivos...", "durationMs": 1400 },
+    { "label": "Calculando janela ideal de jejum...", "durationMs": 1600 },
+    { "label": "Personalizando seu protocolo...", "durationMs": 1600 },
+    { "label": "Finalizando análise...", "durationMs": 1000 }
+  ]
+}

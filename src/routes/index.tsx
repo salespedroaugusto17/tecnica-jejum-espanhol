@@ -1,24 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { QuizProvider, useQuiz } from "@/quiz/QuizContext";
+import { GenderSelect } from "@/components/quiz/GenderSelect";
+import { QuizEngine } from "@/components/quiz/QuizEngine";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Truque Jejum — Descubra seu protocolo personalizado" },
+      {
+        name: "description",
+        content:
+          "Quiz personalizado de emagrecimento por jejum intermitente. Receba um protocolo sob medida em menos de 2 minutos.",
+      },
+      { property: "og:title", content: "Truque Jejum — Protocolo personalizado" },
+      {
+        property: "og:description",
+        content: "Descubra em 2 minutos seu protocolo ideal de jejum intermitente.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: QuizPage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function QuizPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <QuizProvider>
+      <QuizRouter />
+    </QuizProvider>
   );
+}
+
+function QuizRouter() {
+  const { answers } = useQuiz();
+  return answers.gender ? <QuizEngine /> : <GenderSelect />;
 }
