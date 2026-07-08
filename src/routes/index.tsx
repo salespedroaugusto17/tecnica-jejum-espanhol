@@ -1,21 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { QuizProvider, useQuiz } from "@/quiz/QuizContext";
-import { GenderSelect } from "@/components/quiz/GenderSelect";
+import { IntroLanding, GenderSelect } from "@/components/quiz/EntryScreens";
 import { QuizEngine } from "@/components/quiz/QuizEngine";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Truque Jejum — Descubra seu protocolo personalizado" },
+      { title: "Seca Jejum — Descubra seu Protocolo de Jejum Personalizado" },
       {
         name: "description",
         content:
-          "Quiz personalizado de emagrecimento por jejum intermitente. Receba um protocolo sob medida em menos de 2 minutos.",
+          "Método de Jejum Adaptado que está ajudando homens e mulheres a eliminar até 10kg em 21 dias sem passar fome. Faça o teste gratuito de 2 minutos.",
       },
-      { property: "og:title", content: "Truque Jejum — Protocolo personalizado" },
+      { property: "og:title", content: "Seca Jejum — Protocolo Personalizado" },
       {
         property: "og:description",
-        content: "Descubra em 2 minutos seu protocolo ideal de jejum intermitente.",
+        content: "Elimine até 10kg em 21 dias com um plano de jejum intermitente sob medida.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -34,5 +35,9 @@ function QuizPage() {
 
 function QuizRouter() {
   const { answers } = useQuiz();
-  return answers.gender ? <QuizEngine /> : <GenderSelect />;
+  const [started, setStarted] = useState(false);
+
+  if (!started) return <IntroLanding onStart={() => setStarted(true)} />;
+  if (!answers.gender) return <GenderSelect />;
+  return <QuizEngine />;
 }

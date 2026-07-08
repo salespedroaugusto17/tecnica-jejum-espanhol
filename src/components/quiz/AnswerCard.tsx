@@ -5,62 +5,88 @@ import type { ReactNode } from "react";
 interface AnswerCardProps {
   selected?: boolean;
   onClick?: () => void;
-  icon?: ReactNode;
+  emoji?: string;
   image?: string;
+  imagePosition?: "left" | "right";
   title: string;
   description?: string;
+  /** show right-side checkbox (multi-select) */
   showCheck?: boolean;
+  /** compact = smaller row, used inside food grid */
+  size?: "md" | "sm";
+  children?: ReactNode;
 }
 
+/**
+ * Matches the "Seca Jejum" answer card:
+ * - default: white pill with 1.5px border, teal outline on hover
+ * - selected (single): filled teal with white text
+ * - selected (multi): teal outline + filled check
+ */
 export function AnswerCard({
   selected,
   onClick,
-  icon,
+  emoji,
   image,
+  imagePosition = "right",
   title,
   description,
-  showCheck = true,
+  showCheck = false,
+  size = "md",
+  children,
 }: AnswerCardProps) {
+  const selClass = selected ? (showCheck ? "card-outline" : "card-selected") : "";
+  const padY = size === "sm" ? "py-2.5" : "py-3.5";
+
   return (
     <motion.button
       type="button"
-      whileTap={{ scale: 0.98 }}
+      whileTap={{ scale: 0.985 }}
       onClick={onClick}
-      className={`card-interactive flex w-full items-center gap-4 p-4 text-left ${
-        selected ? "card-selected" : ""
-      }`}
+      className={`card-interactive relative flex w-full items-stretch overflow-hidden text-left ${selClass}`}
       aria-pressed={selected}
     >
-      {image ? (
-        <img
-          src={image}
-          alt=""
-          className="h-14 w-14 shrink-0 rounded-xl object-cover"
-          loading="lazy"
-        />
-      ) : icon ? (
-        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground">
-          {icon}
+      {image && imagePosition === "left" && (
+        <div className="relative -my-px w-16 shrink-0 overflow-hidden rounded-l-[10px]">
+          <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
         </div>
-      ) : null}
+      )}
 
-      <div className="min-w-0 flex-1">
-        <div className="truncate text-base font-semibold text-foreground">{title}</div>
-        {description && (
-          <div className="mt-0.5 line-clamp-2 text-sm text-muted-foreground">{description}</div>
+      <div className={`flex min-w-0 flex-1 items-center gap-3 px-4 ${padY}`}>
+        {emoji && !image && (
+          <span className="text-xl leading-none" aria-hidden>
+            {emoji}
+          </span>
+        )}
+        <div className="min-w-0 flex-1">
+          {description ? (
+            <>
+              <div className="text-[15px] font-semibold leading-tight">{title}</div>
+              <div className="mt-0.5 text-[13px] leading-snug opacity-80">{description}</div>
+            </>
+          ) : (
+            <div className="text-[15px] font-medium leading-snug">{title}</div>
+          )}
+          {children}
+        </div>
+
+        {showCheck && (
+          <div
+            className={`grid h-5 w-5 shrink-0 place-items-center rounded-[6px] border-2 transition-colors ${
+              selected
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border-strong bg-transparent"
+            }`}
+            aria-hidden
+          >
+            {selected && <Check className="h-3 w-3" strokeWidth={4} />}
+          </div>
         )}
       </div>
 
-      {showCheck && (
-        <div
-          className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 transition-colors ${
-            selected
-              ? "border-primary bg-primary text-primary-foreground"
-              : "border-border-strong bg-transparent"
-          }`}
-          aria-hidden
-        >
-          {selected && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
+      {image && imagePosition === "right" && (
+        <div className="relative -my-px w-16 shrink-0 overflow-hidden rounded-r-[10px]">
+          <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
         </div>
       )}
     </motion.button>
