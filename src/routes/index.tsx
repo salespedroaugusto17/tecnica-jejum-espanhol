@@ -13,10 +13,10 @@ export const Route = createFileRoute("/")({
         content:
           "Método de Jejum Adaptado que está ajudando homens e mulheres a eliminar até 10kg em 21 dias sem passar fome. Faça o teste gratuito de 2 minutos.",
       },
-      { property: "og:title", content: "Seca Jejum — Protocolo Personalizado" },
+      { property: "og:title", content: "Seca Jejum — Descubra seu Protocolo de Jejum Personalizado" },
       {
         property: "og:description",
-        content: "Elimine até 10kg em 21 dias com um plano de jejum intermitente sob medida.",
+        content: "Método de Jejum Adaptado que está ajudando homens e mulheres a eliminar até 10kg em 21 dias sem passar fome. Faça o teste gratuito de 2 minutos.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

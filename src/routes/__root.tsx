@@ -81,16 +81,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "width=device-width, initial-scale=1, viewport-fit=cover",
       },
       { name: "theme-color", content: "#ffffff" },
-      { title: "Truque Jejum — Protocolo personalizado" },
+      { title: "Seca Jejum — Descubra seu Protocolo de Jejum Personalizado" },
       {
         name: "description",
         content:
-          "Quiz personalizado de emagrecimento por jejum intermitente. Receba seu protocolo em menos de 2 minutos.",
+          "Método de Jejum Adaptado que está ajudando homens e mulheres a eliminar até 10kg em 21 dias sem passar fome. Faça o teste gratuito de 2 minutos.",
       },
+      { property: "og:title", content: "Seca Jejum — Descubra seu Protocolo de Jejum Personalizado" },
+      { name: "twitter:title", content: "Seca Jejum — Descubra seu Protocolo de Jejum Personalizado" },
+      { property: "og:description", content: "Método de Jejum Adaptado que está ajudando homens e mulheres a eliminar até 10kg em 21 dias sem passar fome. Faça o teste gratuito de 2 minutos." },
+      { name: "twitter:description", content: "Método de Jejum Adaptado que está ajudando homens e mulheres a eliminar até 10kg em 21 dias sem passar fome. Faça o teste gratuito de 2 minutos." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69e31a02-13fe-4d20-9af8-22f4e790a8d2/id-preview-e04f1436--458f37e8-c2a2-4322-9ba1-250eae73727e.lovable.app-1783483064829.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69e31a02-13fe-4d20-9af8-22f4e790a8d2/id-preview-e04f1436--458f37e8-c2a2-4322-9ba1-250eae73727e.lovable.app-1783483064829.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
