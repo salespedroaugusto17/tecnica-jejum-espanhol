@@ -104,6 +104,7 @@ function SingleRenderer({ question, onPick }: { question: Question; onPick: (id:
           key={opt.id}
           title={opt.label}
           emoji={opt.emoji}
+          image={opt.image}
           selected={pick === opt.id}
           onClick={() => {
             setPick(opt.id);

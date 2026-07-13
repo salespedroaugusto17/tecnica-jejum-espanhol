@@ -36,7 +36,7 @@ export function AnswerCard({
   children,
 }: AnswerCardProps) {
   const selClass = selected ? (showCheck ? "card-outline" : "card-selected") : "";
-  const padY = size === "sm" ? "py-2.5" : "py-3.5";
+  const padY = size === "sm" ? "py-3" : "py-4";
 
   return (
     <motion.button
@@ -52,20 +52,20 @@ export function AnswerCard({
         </div>
       )}
 
-      <div className={`flex min-w-0 flex-1 items-center gap-3 px-4 ${padY}`}>
+      <div className={`flex min-w-0 flex-1 items-center gap-3 px-5 ${padY}`}>
         {emoji && !image && (
-          <span className="text-xl leading-none" aria-hidden>
+          <span className="text-2xl leading-none" aria-hidden>
             {emoji}
           </span>
         )}
         <div className="min-w-0 flex-1">
           {description ? (
             <>
-              <div className="text-[15px] font-semibold leading-tight">{title}</div>
-              <div className="mt-0.5 text-[13px] leading-snug opacity-80">{description}</div>
+              <div className="text-[16px] font-semibold leading-tight">{title}</div>
+              <div className="mt-0.5 text-[14px] leading-snug opacity-80">{description}</div>
             </>
           ) : (
-            <div className="text-[15px] font-medium leading-snug">{title}</div>
+            <div className="text-[16px] font-semibold leading-snug">{title}</div>
           )}
           {children}
         </div>
@@ -85,7 +85,7 @@ export function AnswerCard({
       </div>
 
       {image && imagePosition === "right" && (
-        <div className="relative -my-px w-16 shrink-0 overflow-hidden rounded-r-[10px]">
+        <div className="relative -my-px w-20 shrink-0 overflow-hidden rounded-r-[10px]">
           <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
         </div>
       )}

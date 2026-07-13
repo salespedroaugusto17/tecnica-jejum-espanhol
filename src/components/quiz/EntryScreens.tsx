@@ -11,28 +11,26 @@ export function IntroLanding({ onStart }: { onStart: () => void }) {
   return (
     <AppShell>
       <Header showBack={false} progress={0.03} />
-      <div className="flex flex-1 flex-col items-center gap-6 px-5 pt-6 pb-8">
-        <h1 className="text-balance text-center text-[22px] font-extrabold leading-[1.2] text-foreground">
-          Esse <span className="text-primary">Método de Jejum Adaptado</span> está ajudando Homens e Mulheres a{" "}
-          <span className="text-[oklch(0.62_0.22_25)]">eliminar até 10kg em 21 dias</span> sem passar fome
-        </h1>
-        <p className="text-center text-sm font-medium text-foreground">
-          Responda esse teste gratuito de apenas 2 minutos e aprenda 👇
-        </p>
-
-        {/* Before/after collage — emoji placeholders (swap for real assets later) */}
-        <div className="relative w-full max-w-[320px]">
-          <div className="grid grid-cols-2 gap-2">
-            <BeforeAfterTile label="Antes" tone="red" emoji="🫃" />
-            <BeforeAfterTile label="Depois" tone="green" emoji="💪" />
-          </div>
-          <div className="mt-2 ml-8 grid grid-cols-2 gap-2">
-            <BeforeAfterTile label="Antes" tone="red" emoji="🫃" female />
-            <BeforeAfterTile label="Depois" tone="green" emoji="🤸‍♀️" female />
-          </div>
+      <div className="flex flex-1 flex-col items-center justify-between px-5 pt-4 pb-6">
+        <div className="flex flex-col items-center gap-2">
+          <h1 className="text-balance text-center text-[23px] font-black leading-[1.15] tracking-tight text-foreground">
+            Esse <span className="text-primary">Método de Jejum Adaptado</span> está ajudando Homens e Mulheres a{" "}
+            <span className="text-[#b30000]">eliminar até 10kg em 21 dias</span> sem passar fome
+          </h1>
+          <p className="text-center text-[15px] font-bold text-foreground">
+            Responda esse teste gratuito de apenas 2 minutos e aprenda 👇
+          </p>
         </div>
 
-        <div className="mt-auto w-full">
+        <div className="relative flex-1 w-full flex items-center justify-center min-h-0 my-2">
+          <img 
+            src="/antes-depois.png" 
+            alt="Antes e Depois" 
+            className="w-[105%] max-w-[400px] max-h-[100%] object-contain"
+          />
+        </div>
+
+        <div className="w-full z-10 pb-2">
           <CTAButton onClick={onStart}>QUERO APRENDER TAMBÉM! 😱</CTAButton>
         </div>
       </div>
@@ -68,18 +66,18 @@ function BeforeAfterTile({
 /* -------------------------------------------------------------------------- */
 
 /** Gender select — two big cards with photo + labeled bottom bar. */
-export function GenderSelect() {
+export function GenderSelect({ onBack }: { onBack?: () => void }) {
   const { setGender } = useQuiz();
   const [hovered, setHovered] = useState<"male" | "female" | null>("male");
 
   return (
     <AppShell>
-      <Header showBack={false} progress={0.05} />
-      <div className="flex flex-1 flex-col items-center justify-center gap-8 px-5 pb-16">
-        <h1 className="text-center text-[26px] font-extrabold text-foreground">
+      <Header showBack={true} onBack={onBack} progress={0.05} />
+      <div className="flex flex-1 flex-col items-center justify-center gap-5 px-5 pb-8">
+        <h1 className="text-center text-[24px] font-black text-foreground tracking-tight">
           Jejum Intermitente para:
         </h1>
-        <div className="grid w-full grid-cols-2 gap-3">
+        <div className="grid w-full grid-cols-2 gap-3 max-h-[60vh]">
           {(["male", "female"] as const).map((g) => {
             const active = hovered === g;
             return (
@@ -88,14 +86,18 @@ export function GenderSelect() {
                 whileTap={{ scale: 0.98 }}
                 onPointerEnter={() => setHovered(g)}
                 onClick={() => setGender(g)}
-                className="relative flex aspect-[3/4] flex-col overflow-hidden rounded-xl border border-border shadow-sm"
+                className="relative flex flex-col overflow-hidden rounded-xl border border-border shadow-sm"
                 style={{
                   backgroundColor:
                     g === "male" ? "oklch(0.72 0.06 175)" : "oklch(0.90 0.05 60)",
                 }}
               >
-                <div className="grid flex-1 place-items-center text-8xl">
-                  {g === "male" ? "🧔‍♂️" : "👩"}
+                <div className="flex-1 w-full overflow-hidden">
+                  <img 
+                    src={g === "male" ? "/homem.png" : "/mulher.png"} 
+                    alt={g === "male" ? "Homem" : "Mulher"}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div
                   className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-colors ${

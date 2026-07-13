@@ -35,21 +35,10 @@
       "type": "single",
       "title": "Como você descreveria seu físico?",
       "options": [
-        { "id": "skinny", "label": "Magro", "emoji": "🧍" },
-        { "id": "flabby", "label": "Flácido", "emoji": "🫃" },
-        { "id": "few_kilos", "label": "Uns quilinhos a mais", "emoji": "🙂" },
-        { "id": "obese", "label": "Obeso", "emoji": "😔" }
-      ]
-    },
-    {
-      "id": "goal_body",
-      "type": "single",
-      "title": "Qual é o seu objetivo corporal?",
-      "options": [
-        { "id": "skinny", "label": "Magro", "emoji": "🧍" },
-        { "id": "in_shape", "label": "Em forma", "emoji": "💪" },
-        { "id": "defined", "label": "Definido", "emoji": "🏋️" },
-        { "id": "ripped", "label": "Rasgado", "emoji": "🔥" }
+        { "id": "skinny", "label": "Magro", "emoji": "🧍", "image": "/body-magro.png" },
+        { "id": "flabby", "label": "Flácido", "emoji": "🫃", "image": "/body-flacido.png" },
+        { "id": "few_kilos", "label": "Uns quilinhos a mais", "emoji": "🙂", "image": "/body-quilinhos.png" },
+        { "id": "obese", "label": "Obeso", "emoji": "😔", "image": "/body-obeso.png" }
       ]
     },
     {

@@ -17,7 +17,7 @@ export function ScreenTransition({
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -24 }}
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        className="flex flex-1 flex-col"
+        className="flex flex-1 flex-col min-h-0"
       >
         {children}
       </motion.div>

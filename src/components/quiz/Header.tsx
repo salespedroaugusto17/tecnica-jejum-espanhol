@@ -22,8 +22,8 @@ export function Header({ progress, onBack, showBack = true, showProgress = true 
           <ChevronLeft className="h-5 w-5" strokeWidth={2.5} />
         </button>
         <div className="flex items-center justify-center gap-1.5">
-          <span className="text-lg leading-none" aria-hidden>🔥</span>
-          <span className="text-sm font-extrabold tracking-tight text-foreground">SECA JEJUM</span>
+          <span className="text-xl leading-none" aria-hidden>🔥</span>
+          <span className="text-[15px] font-extrabold tracking-tight text-foreground">SECA JEJUM</span>
         </div>
         <div className="h-9 w-9" />
       </div>

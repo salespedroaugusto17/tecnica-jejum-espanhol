@@ -38,6 +38,6 @@ function QuizRouter() {
   const [started, setStarted] = useState(false);
 
   if (!started) return <IntroLanding onStart={() => setStarted(true)} />;
-  if (!answers.gender) return <GenderSelect />;
+  if (!answers.gender) return <GenderSelect onBack={() => setStarted(false)} />;
   return <QuizEngine />;
 }

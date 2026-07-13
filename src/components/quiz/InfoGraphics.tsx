@@ -6,57 +6,18 @@ interface EnergyChartProps {}
 /** "Sabemos como mantê-lo em forma" — HOJE vs DEPOIS bar chart. */
 export function EnergyChart(_: EnergyChartProps) {
   return (
-    <div className="relative mx-auto flex h-64 w-full max-w-[380px] items-end gap-6 rounded-2xl bg-muted/40 p-4">
-      {/* dividers */}
-      <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-4">
-        {[0, 1, 2, 3].map((i) => (
-          <div key={i} className="h-px w-full bg-border" />
-        ))}
-      </div>
-
-      {/* HOJE column */}
-      <div className="relative flex flex-1 items-end justify-center gap-2">
-        <motion.div
-          initial={{ height: 0 }}
-          animate={{ height: "88%" }}
-          transition={{ delay: 0.1, duration: 0.7 }}
-          className="w-8 rounded-t-md bg-[oklch(0.68_0.20_25)]"
-        />
-        <motion.div
-          initial={{ height: 0 }}
-          animate={{ height: "52%" }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="w-8 rounded-t-md bg-[oklch(0.85_0.10_25)]"
-        />
-        <span className="absolute -top-1 left-2 rounded-md bg-[oklch(0.95_0.05_75)] px-1.5 py-0.5 text-[9px] font-bold text-[oklch(0.45_0.15_75)]">
-          CALORIAS VAZIAS 😩 ↑
-        </span>
-      </div>
-
-      {/* DEPOIS column */}
-      <div className="relative flex flex-1 items-end justify-center gap-2">
-        <motion.div
-          initial={{ height: 0 }}
-          animate={{ height: "40%" }}
-          transition={{ delay: 0.35, duration: 0.7 }}
-          className="w-8 rounded-t-md bg-[oklch(0.85_0.08_175)]"
-        />
-        <motion.div
-          initial={{ height: 0 }}
-          animate={{ height: "85%" }}
-          transition={{ delay: 0.5, duration: 0.7 }}
-          className="w-8 rounded-t-md bg-primary"
-        />
-        <span className="absolute -top-1 right-2 rounded-md bg-[oklch(0.95_0.05_75)] px-1.5 py-0.5 text-[9px] font-bold text-[oklch(0.45_0.15_75)]">
-          ENERGIA ⚡ ↑
-        </span>
-      </div>
-
-      <div className="absolute bottom-2 left-0 right-0 flex justify-between px-4 text-[10px] font-bold text-muted-foreground">
-        <span className="flex-1 text-center">HOJE</span>
-        <span className="flex-1 text-center">DEPOIS</span>
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mx-auto w-full max-w-[380px]"
+    >
+      <img
+        src="/energy-chart.png"
+        alt="Gráfico de Calorias Vazias vs Energia — Hoje vs Depois"
+        className="w-full h-auto"
+      />
+    </motion.div>
   );
 }
 
@@ -121,20 +82,18 @@ export function FaceTransform() {
 /** Trio of men illustration (social proof). */
 export function TrioMen() {
   return (
-    <div className="mx-auto flex w-full max-w-[300px] items-end justify-center gap-2">
-      {["🧍‍♂️", "🏋️‍♂️", "🧍‍♂️"].map((e, i) => (
-        <motion.div
-          key={i}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.1 * i }}
-          className="text-[110px] leading-none"
-          style={{ fontSize: i === 1 ? 140 : 110 }}
-        >
-          {e}
-        </motion.div>
-      ))}
-    </div>
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4 }}
+      className="mx-auto flex w-full max-w-[380px] items-end justify-center relative mt-4 mb-2"
+    >
+      <img 
+        src="/trio_men.png" 
+        alt="Milhares de pessoas já escolheram" 
+        className="w-[110%] max-w-none h-auto -ml-[5%] object-contain drop-shadow-sm mix-blend-multiply"
+      />
+    </motion.div>
   );
 }
 
