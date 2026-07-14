@@ -36,7 +36,8 @@ export function AnswerCard({
   children,
 }: AnswerCardProps) {
   const selClass = selected ? (showCheck ? "card-outline" : "card-selected") : "";
-  const padY = size === "sm" ? "py-3" : "py-4";
+  const padY = size === "sm" ? "py-2.5" : "py-4.5";
+  const titleSize = size === "sm" ? "text-[15px]" : "text-[17px]";
 
   return (
     <motion.button
@@ -47,25 +48,25 @@ export function AnswerCard({
       aria-pressed={selected}
     >
       {image && imagePosition === "left" && (
-        <div className="relative -my-px w-16 shrink-0 overflow-hidden rounded-l-[10px]">
+        <div className="relative -my-px w-20 shrink-0 overflow-hidden rounded-l-[10px]">
           <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
         </div>
       )}
 
       <div className={`flex min-w-0 flex-1 items-center gap-3 px-5 ${padY}`}>
         {emoji && !image && (
-          <span className="text-2xl leading-none" aria-hidden>
+          <span className="text-3xl leading-none" aria-hidden>
             {emoji}
           </span>
         )}
         <div className="min-w-0 flex-1">
           {description ? (
             <>
-              <div className="text-[16px] font-semibold leading-tight">{title}</div>
-              <div className="mt-0.5 text-[14px] leading-snug opacity-80">{description}</div>
+              <div className={`${titleSize} font-bold leading-tight`}>{title}</div>
+              <div className="mt-0.5 text-[15px] leading-snug opacity-80">{description}</div>
             </>
           ) : (
-            <div className="text-[16px] font-semibold leading-snug">{title}</div>
+            <div className={`${titleSize} font-semibold leading-snug`}>{title}</div>
           )}
           {children}
         </div>

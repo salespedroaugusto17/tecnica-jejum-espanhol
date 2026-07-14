@@ -28,6 +28,10 @@ export interface Question {
   title: string;
   subtitle?: string;
   options?: AnswerOption[];
+  /** Optional side image for split layouts */
+  sideImage?: string;
+  /** Optional alert box under sliders */
+  infoBox?: { title: string; body: string };
   /** slider config */
   units?: Array<{ id: string; label: string }>;
   min?: number;

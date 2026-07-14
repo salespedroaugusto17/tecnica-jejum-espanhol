@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 interface QuestionShellProps {
   title: string;
   subtitle?: string;
+  subtitleStyle?: "default" | "small-muted";
   children: ReactNode;
   footer?: ReactNode;
   /** center content vertically (like most Seca Jejum screens) */
@@ -12,6 +13,7 @@ interface QuestionShellProps {
 export function QuestionShell({
   title,
   subtitle,
+  subtitleStyle = "default",
   children,
   footer,
   centered = true,
@@ -24,11 +26,15 @@ export function QuestionShell({
         }`}
       >
         <div className="mx-auto w-full">
-          <h2 className="text-balance text-center text-[26px] font-black leading-[1.15] text-foreground tracking-tight">
+          <h2 className="text-balance text-center text-[28px] font-black leading-[1.15] text-foreground tracking-tight">
             {title}
           </h2>
           {subtitle && (
-            <p className="mt-2 text-pretty text-center text-[18px] font-bold leading-snug text-foreground">
+            <p className={`mt-2 text-pretty text-center leading-snug ${
+              subtitleStyle === "small-muted"
+                ? "text-[15px] font-medium text-muted-foreground"
+                : "text-[20px] font-bold text-foreground"
+            }`}>
               {subtitle.includes("Seca Jejum Turbo") ? (
                 <>
                   {subtitle.split("Seca Jejum Turbo")[0]}
@@ -40,7 +46,7 @@ export function QuestionShell({
               )}
             </p>
           )}
-          <div className="mt-5 flex flex-col gap-2.5">{children}</div>
+          <div className="mt-6 flex flex-col gap-3">{children}</div>
         </div>
       </div>
       {footer && (

@@ -10,7 +10,7 @@ export function EnergyChart(_: EnergyChartProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="mx-auto w-full max-w-[380px]"
+      className="mx-auto w-full"
     >
       <img
         src="/energy-chart.png"
@@ -58,24 +58,20 @@ export function MetabolismChart() {
   );
 }
 
-/** Face transformation — 3 placeholders showing progressive slimming. */
 export function FaceTransform() {
   return (
-    <div className="mx-auto grid w-full max-w-[380px] grid-cols-3 gap-1.5">
-      {[
-        { emoji: "😐", tint: "oklch(0.90 0.08 30)" },
-        { emoji: "🙂", tint: "oklch(0.82 0.06 40)" },
-        { emoji: "😊", tint: "oklch(0.80 0.10 50)" },
-      ].map((f, i) => (
-        <div
-          key={i}
-          className="grid aspect-[3/4] place-items-center rounded-lg text-6xl"
-          style={{ backgroundColor: f.tint }}
-        >
-          {f.emoji}
-        </div>
-      ))}
-    </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4 }}
+      className="mx-auto w-full"
+    >
+      <img
+        src="/face-transformation.png"
+        alt="Transformação do Rosto pelo Jejum"
+        className="w-full h-auto rounded-2xl"
+      />
+    </motion.div>
   );
 }
 

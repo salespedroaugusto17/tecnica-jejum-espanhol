@@ -42,6 +42,17 @@
       ]
     },
     {
+      "id": "goal_body",
+      "type": "single",
+      "title": "Qual é o seu objetivo corporal?",
+      "options": [
+        { "id": "skinny", "label": "Magro", "emoji": "🧍", "image": "/body-magro.png" },
+        { "id": "in_shape", "label": "Em forma", "emoji": "💪", "image": "/body-magro.png" },
+        { "id": "defined", "label": "Definido", "emoji": "🏋️", "image": "/body-magro.png" },
+        { "id": "ripped", "label": "Rasgado", "emoji": "🔥", "image": "/body-magro.png" }
+      ]
+    },
+    {
       "id": "info_healthy",
       "type": "info",
       "title": "Sabemos como mantê-lo em forma e saudável a longo prazo",
@@ -53,17 +64,18 @@
       "title": "Quais áreas do corpo você quer focar?",
       "minSelected": 1,
       "options": [
-        { "id": "arms", "label": "Braços", "emoji": "💪" },
-        { "id": "chest", "label": "Peito", "emoji": "🫁" },
-        { "id": "belly", "label": "Barriga", "emoji": "🧍‍♂️" },
-        { "id": "legs", "label": "Pernas", "emoji": "🦵" },
-        { "id": "back", "label": "Costas", "emoji": "🤸" }
+        { "id": "arms", "label": "Braços", "emoji": "💪", "image": "/focus-arms.png", "imagePosition": "left" },
+        { "id": "chest", "label": "Peito", "emoji": "🫁", "image": "/focus-chest.png", "imagePosition": "left" },
+        { "id": "belly", "label": "Barriga", "emoji": "🧍‍♂️", "image": "/focus-belly.png", "imagePosition": "left" },
+        { "id": "legs", "label": "Pernas", "emoji": "🦵", "image": "/focus-legs.png", "imagePosition": "left" },
+        { "id": "back", "label": "Costas", "emoji": "🤸", "image": "/focus-back.png", "imagePosition": "left" }
       ]
     },
     {
       "id": "last_best_form",
       "type": "single",
       "title": "Faz quanto tempo que você se sentiu na sua melhor forma?",
+      "sideImage": "/best-form-man.png",
       "options": [
         { "id": "0-6m", "label": "0 a 6 meses atrás" },
         { "id": "7-12m", "label": "7 a 12 meses atrás" },
@@ -114,10 +126,10 @@
       "type": "single",
       "title": "Quando você costuma almoçar?",
       "options": [
-        { "id": "10-12", "label": "Entre 10h e 12h", "emoji": "🥗" },
-        { "id": "12-14", "label": "Entre 12h e 14h", "emoji": "🥑" },
-        { "id": "14-16", "label": "Entre 14h e 16h", "emoji": "🍤" },
-        { "id": "skip", "label": "Eu costumo pular o almoço", "emoji": "🥛" }
+        { "id": "10-12", "label": "Entre 10h e 12h", "emoji": "🥗", "image": "/lunch-10-12.png" },
+        { "id": "12-14", "label": "Entre 12h e 14h", "emoji": "🥑", "image": "/lunch-12-14.png" },
+        { "id": "14-16", "label": "Entre 14h e 16h", "emoji": "🍤", "image": "/lunch-14-16.png" },
+        { "id": "skip", "label": "Eu costumo pular o almoço", "emoji": "🥛", "image": "/lunch-skip.png" }
       ]
     },
     {
@@ -125,10 +137,10 @@
       "type": "single",
       "title": "Quando você janta?",
       "options": [
-        { "id": "16-18", "label": "Entre 16h e 18h", "emoji": "🥗" },
-        { "id": "18-20", "label": "Entre 18h e 20h", "emoji": "🥙" },
-        { "id": "20-22", "label": "Entre 20h e 22h", "emoji": "🥑" },
-        { "id": "skip", "label": "Eu costumo pular o jantar", "emoji": "🥛" }
+        { "id": "16-18", "label": "Entre 16h e 18h", "emoji": "🥗", "image": "/dinner-16-18.png" },
+        { "id": "18-20", "label": "Entre 18h e 20h", "emoji": "🥙", "image": "/dinner-18-20.png" },
+        { "id": "20-22", "label": "Entre 20h e 22h", "emoji": "🥑", "image": "/dinner-20-22.png" },
+        { "id": "skip", "label": "Eu costumo pular o jantar", "emoji": "🥛", "image": "/lunch-skip.png" }
       ]
     },
     {
@@ -136,12 +148,12 @@
       "type": "multi",
       "title": "Você tem alguma restrição alimentar?",
       "options": [
-        { "id": "lactose", "label": "Sem lactose", "description": "Eu não consumo alimentos com lactose", "emoji": "🍼" },
-        { "id": "gluten", "label": "Sem glúten", "description": "Eu evito grãos com glúten", "emoji": "🍩" },
-        { "id": "vegetarian", "label": "Vegetariano", "description": "Eu não como carne", "emoji": "🥦" },
-        { "id": "vegan", "label": "Vegano", "description": "Eu não consumo produto de origem animal", "emoji": "🌱" },
-        { "id": "no_fish", "label": "Nenhum peixe", "description": "Não como nenhum tipo de peixe", "emoji": "🐟" },
-        { "id": "none", "label": "Nenhuma das acima", "description": "Eu como quase tudo", "emoji": "❌" }
+        { "id": "lactose", "label": "Sem lactose", "emoji": "🍼" },
+        { "id": "gluten", "label": "Sem glúten", "emoji": "🍩" },
+        { "id": "vegetarian", "label": "Vegetariano", "emoji": "🥦" },
+        { "id": "vegan", "label": "Vegano", "emoji": "🌱" },
+        { "id": "no_fish", "label": "Nenhum peixe", "emoji": "🐟" },
+        { "id": "none", "label": "Nenhuma das acima", "emoji": "❌" }
       ]
     },
     {
@@ -216,6 +228,7 @@
       "id": "exercise_freq",
       "type": "single",
       "title": "Com que frequência você se exercita?",
+      "sideImage": "/exercise-man.png",
       "options": [
         { "id": "daily", "label": "Quase todos os dias" },
         { "id": "weekly", "label": "Várias vezes por semana" },
@@ -227,6 +240,7 @@
       "id": "work_routine",
       "type": "single",
       "title": "Como é a sua rotina de trabalho?",
+      "sideImage": "/work-man.png",
       "options": [
         { "id": "9to18", "label": "das 09:00 às 18:00" },
         { "id": "night", "label": "Turnos noturnos" },
@@ -270,6 +284,7 @@
       "id": "sleep_hours",
       "type": "single",
       "title": "Quantas horas você costuma dormir?",
+      "sideImage": "/sleep-man.png",
       "options": [
         { "id": "<5", "label": "Durmo pouco (menos de 5 horas)" },
         { "id": "5-6", "label": "Eu consigo dormir um pouco (5-6 horas)" },
@@ -281,6 +296,7 @@
       "id": "water_intake",
       "type": "single",
       "title": "Qual é a sua ingestão diária de água?",
+      "sideImage": "/water-man.png",
       "options": [
         { "id": "coffee_only", "label": "Eu só tomo café ou chá" },
         { "id": "~2", "label": "Cerca de 2 copos" },
@@ -367,6 +383,23 @@
       "max": 180,
       "defaultValue": 80,
       "step": 1
+    },
+    {
+      "id": "target_weight",
+      "type": "slider",
+      "title": "Qual é o seu peso desejado?",
+      "units": [
+        { "id": "kg", "label": "kg" },
+        { "id": "lb", "label": "lb" }
+      ],
+      "min": 40,
+      "max": 180,
+      "defaultValue": 70,
+      "step": 1,
+      "infoBox": {
+        "title": "O seu IMC está fora do ideal!",
+        "body": "É hora de cuidar do seu peso! Vamos usar suas informações para criar um plano personalizado para você, que acelera o metabolismo, ajuda na perda de peso, fortalece e melhora a saúde do coração."
+      }
     },
     {
       "id": "age",

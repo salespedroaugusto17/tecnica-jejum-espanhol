@@ -74,7 +74,7 @@ export function GenderSelect({ onBack }: { onBack?: () => void }) {
     <AppShell>
       <Header showBack={true} onBack={onBack} progress={0.05} />
       <div className="flex flex-1 flex-col items-center justify-center gap-5 px-5 pb-8">
-        <h1 className="text-center text-[24px] font-black text-foreground tracking-tight">
+        <h1 className="text-center text-[28px] font-black text-foreground tracking-tight">
           Jejum Intermitente para:
         </h1>
         <div className="grid w-full grid-cols-2 gap-3 max-h-[60vh]">
