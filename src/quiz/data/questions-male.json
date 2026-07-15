@@ -435,16 +435,16 @@
       ]
     },
     {
-      "id": "plan_preview",
-      "type": "special",
-      "title": "O único plano que você precisa para entrar em forma",
-      "screen": "plan_preview"
-    },
-    {
       "id": "loading",
       "type": "special",
       "title": "Criando o seu Plano Personalizado de Jejum",
       "screen": "loading"
+    },
+    {
+      "id": "plan_preview",
+      "type": "special",
+      "title": "O seu Plano Personalizado de Jejum está pronto!",
+      "screen": "plan_preview"
     },
     {
       "id": "result",

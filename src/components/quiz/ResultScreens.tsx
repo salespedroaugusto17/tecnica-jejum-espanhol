@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
 import { CTAButton } from "./CTAButton";
 import { ProgressBar } from "./ProgressBar";
 
@@ -7,6 +8,7 @@ interface Testimonial {
   name: string;
   title: string;
   body: string;
+  image?: string;
 }
 
 const TESTIMONIALS: Testimonial[] = [
@@ -15,100 +17,137 @@ const TESTIMONIALS: Testimonial[] = [
     title: "Realmente esse Plano é incrível",
     body:
       "Fiquei realmente surpresa com esse plano, não imaginei que iria fazer tanta diferença! Finalmente consegui sair dos 68kg e voltar para os meus 60kg. Eu sempre gostei de fazer jejum, mas eu não sabia nem da metade das estratégias que vcs passam... O planejamento das refeições me ajudou demais, gratidão!!",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80",
   },
   {
     name: "Sérgio Augusto",
     title: "Nunca tinha visto nenhum conteúdo parecido!",
     body:
-      "O conteúdo de vcs se encaixou perfeitamente com o que eu precisava. Eu sempre gostei de correr mas de 4 anos pra cá eu não conseguia, estava acima do peso e era muito complicado... Foi quando eu conheci o plano personalizado de jejum de vocês, perdi um pouco mais de 10kg...",
+      "O conteúdo de vcs se encaixou perfeitamente com o que eu precisava. Eu sempre gostei de correr mas de 4 anos pra cá eu não conseguia, estava acima do peso e era muito complicado... Foi quando eu conheci o plano personalizado de jejum de vocês, perdi um pouco mais de 10kg... E no final de semana passado voltei a correr, só agradecer!!",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80",
   },
   {
     name: "Cláudia Santos",
     title: "Perder peso era muito difícil, agora eu estou conseguindo sem esforço!",
     body:
-      "Estou muito feliz com os resultados do Plano personalizado! Desde que comecei a seguir as orientações, notei uma grande diferença no espelho... to muito menos inchada e to com menos 5kg na balança...",
+      "Estou muito feliz com os resultados do Plano personalizado! Desde que comecei a seguir as orientações, notei uma grande diferença no espelho... to muito menos inchada e to com menos 5kg na balança. Mas isso nem foi o melhor, o que mais mudou foi a minha energia, antes eu já acordava cansada sabe? agora pareço ter 20 anos novamente kkkk, obrigada!!",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
   },
 ];
 
 interface LoadingScreenProps {
   onComplete: () => void;
+  onBack?: () => void;
 }
 
 /** Simulated AI plan-building loading, with rotating testimonial cards. */
-export function LoadingScreen({ onComplete }: LoadingScreenProps) {
+export function LoadingScreen({ onComplete, onBack }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);
   const [tIndex, setTIndex] = useState(0);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
   useEffect(() => {
-    const total = 7000; // 7s
+    const total = 7000; // Exatamente 7 segundos
     const start = performance.now();
     let raf = 0;
+    let completed = false;
+
     const tick = () => {
       const p = Math.min(1, (performance.now() - start) / total);
       setProgress(p);
-      if (p < 1) raf = requestAnimationFrame(tick);
-      else setTimeout(onComplete, 400);
+      if (p < 1) {
+        raf = requestAnimationFrame(tick);
+      } else if (!completed) {
+        completed = true;
+        onCompleteRef.current();
+      }
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [onComplete]);
+  }, []);
 
+  // Rotacionar depoimentos de 3.5 em 3.5 segundos (mais lento)
   useEffect(() => {
-    const id = setInterval(() => setTIndex((i) => (i + 1) % TESTIMONIALS.length), 2500);
+    const id = setInterval(() => {
+      setTIndex((i) => (i + 1) % TESTIMONIALS.length);
+    }, 3500);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <div className="flex flex-1 flex-col gap-6 px-5 py-6">
-      <div>
-        <h2 className="text-[22px] font-extrabold leading-tight text-foreground">
+    <div className="flex flex-1 flex-col gap-5 px-5 py-4 min-h-0 overflow-y-auto no-scrollbar">
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="absolute left-4 top-4 z-30 p-1 text-foreground/80 hover:text-foreground"
+          aria-label="Voltar"
+        >
+          <ArrowLeft className="h-6 w-6" />
+        </button>
+      )}
+      
+      <div className="mt-4">
+        <h2 className="text-[24px] font-extrabold leading-tight text-foreground text-center">
           Criando o seu Plano Personalizado de Jejum
         </h2>
-        <div className="mt-4 flex items-center justify-between text-sm font-semibold text-foreground">
+        <div className="mt-4 flex items-center justify-between text-[15px] font-semibold text-foreground">
           <span className="text-muted-foreground">Preparando...</span>
           <span>{Math.round(progress * 100)}%</span>
         </div>
         <div className="mt-2">
           <ProgressBar value={progress} />
         </div>
-        <p className="mt-3 text-center text-xs text-muted-foreground">
+        <p className="mt-3 text-center text-[13px] text-muted-foreground">
           Estamos preparando o seu plano exclusivo e personalizado..
         </p>
       </div>
 
-      <div className="mt-4 text-center">
-        <div className="text-2xl font-extrabold text-foreground">+45 mil pessoas</div>
-        <div className="mt-1 text-xs text-muted-foreground">nos escolheram, veja o que eles falaram sobre nós...</div>
+      <div className="mt-2 text-center">
+        <div className="text-[26px] font-extrabold text-foreground">+45 mil pessoas</div>
+        <div className="mt-0.5 text-[13px] text-muted-foreground">nos escolheram, veja o que eles falaram sobre nós...</div>
       </div>
 
-      <div className="relative min-h-[240px]">
-        {TESTIMONIALS.map((t, i) => (
-          <motion.div
-            key={t.name}
-            initial={false}
-            animate={{
-              opacity: i === tIndex ? 1 : 0,
-              x: i === tIndex ? 0 : 30,
-            }}
-            transition={{ duration: 0.4 }}
-            className="absolute inset-0 rounded-2xl border border-border bg-card p-4 shadow-sm"
-            aria-hidden={i !== tIndex}
-          >
-            <div className="flex items-center gap-2">
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-muted text-sm font-semibold">
-                {t.name.charAt(0)}
+      <div className="relative min-h-[220px] w-full flex items-center justify-center">
+        {TESTIMONIALS.map((t, i) => {
+          const isActive = i === tIndex;
+          return (
+            <motion.div
+              key={t.name}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{
+                opacity: isActive ? 1 : 0,
+                x: isActive ? 0 : (i < tIndex ? -50 : 50),
+                scale: isActive ? 1 : 0.95,
+              }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className={`absolute inset-x-0 mx-auto max-w-[380px] rounded-2xl border border-border bg-card p-4 shadow-sm flex flex-col justify-between ${
+                isActive ? "z-10 pointer-events-auto" : "z-0 pointer-events-none"
+              }`}
+              style={{ minHeight: "210px" }}
+            >
+              <div className="flex items-center gap-3">
+                {t.image ? (
+                  <img src={t.image} alt={t.name} className="h-9 w-9 rounded-full object-cover border border-border" />
+                ) : (
+                  <div className="grid h-9 w-9 place-items-center rounded-full bg-muted text-sm font-semibold text-foreground">
+                    {t.name.charAt(0)}
+                  </div>
+                )}
+                <div className="text-left">
+                  <div className="font-semibold text-sm text-foreground">{t.name}</div>
+                  <div className="flex text-primary mt-0.5" aria-hidden>
+                    {"★★★★★".split("").map((s, k) => (
+                      <span key={k} className="text-[10px] text-emerald-500">★</span>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="font-semibold text-foreground">{t.name}</div>
-              <div className="ml-auto flex text-primary" aria-hidden>
-                {"★★★★★".split("").map((s, k) => (
-                  <span key={k} className="text-xs">{s}</span>
-                ))}
-              </div>
-            </div>
-            <div className="mt-2 text-sm font-bold text-foreground">{t.title}</div>
-            <p className="mt-1 line-clamp-6 text-xs leading-relaxed text-muted-foreground">{t.body}</p>
-          </motion.div>
-        ))}
+              <div className="mt-2 text-left text-[14px] font-bold text-foreground leading-snug">{t.title}</div>
+              <p className="mt-1 text-left text-[12px] leading-relaxed text-muted-foreground/90 flex-1">{t.body}</p>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
@@ -197,67 +236,75 @@ function OfferCard({ onCTA }: { onCTA: () => void }) {
 /** Full result / offer page — mirrors screenshots 42-56. */
 export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
   return (
-    <div className="flex-1 overflow-y-auto px-5 pb-16 pt-2 no-scrollbar">
+    <div className="flex-1 overflow-y-auto px-5 pb-16 pt-2 no-scrollbar relative">
       <div className="mx-auto flex w-full max-w-[400px] flex-col gap-6">
-        <h2 className="text-center text-[22px] font-extrabold leading-tight text-foreground">
+        <h2 className="text-center text-[24px] font-extrabold leading-tight text-foreground">
           O seu Plano Personalizado de Jejum está pronto!
         </h2>
 
         {/* Antes/Depois */}
         <div className="overflow-hidden rounded-2xl border border-border">
-          <div className="grid grid-cols-2 divide-x divide-border bg-muted text-center text-sm font-semibold">
+          <div className="grid grid-cols-2 divide-x divide-border bg-[#F5F2EB] text-center text-sm font-bold text-foreground">
             <div className="py-2">Agora</div>
             <div className="py-2">Meta</div>
           </div>
-          <div className="grid grid-cols-2 gap-0 bg-[oklch(0.90_0.02_60)]">
-            <div className="grid aspect-[3/4] place-items-center text-7xl">🫃</div>
-            <div className="grid aspect-[3/4] place-items-center text-7xl">💪</div>
+          <div className="bg-[#EFECE3] p-1.5 flex justify-center">
+            <img 
+              src="/agora-meta.png" 
+              alt="Antes e Depois" 
+              className="w-full h-auto object-contain rounded-xl"
+            />
           </div>
         </div>
 
-        {/* Metrics compare */}
-        <div className="grid grid-cols-2 gap-4">
-          {[
-            { l: "Seu Nível de gordura", a: "Alto", b: "Baixo", va: 0.9, vb: 0.15 },
-            { l: "Seu Nível de energia", a: "Baixo", b: "Alto", va: 0.15, vb: 0.9 },
-            { l: "Seu Metabolismo", a: "Baixo", b: "Alto", va: 0.15, vb: 0.9 },
-          ].flatMap((m, i) => [
-            <MetricRow key={`a${i}`} label={m.l} value={m.a} pct={m.va} />,
-            <MetricRow key={`b${i}`} label={m.l} value={m.b} pct={m.vb} />,
-          ])}
+        {/* Rótulos de tempo */}
+        <div className="grid grid-cols-2 text-center -mt-2">
+          <div className="text-[27px] font-extrabold text-foreground text-left pl-2">Hoje</div>
+          <div className="text-[27px] font-extrabold text-foreground text-left pl-6">Em 21 dias</div>
         </div>
 
-        <div className="rounded-2xl bg-[oklch(0.95_0.08_150)] p-5 text-center">
-          <div className="text-lg font-extrabold text-foreground">Como funciona o Plano?</div>
-          <p className="mt-2 text-sm leading-relaxed text-foreground">
+        {/* Metrics compare */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+          <MetricSlider label="Seu Nível de gordura" value="Alto" pct={0.8} color="red" />
+          <MetricSlider label="Seu Nível de gordura" value="Baixo" pct={0.15} color="green" />
+
+          <MetricSlider label="Seu Nível de energia" value="Baixo" pct={0.2} color="red" />
+          <MetricSlider label="Seu Nível de energia" value="Alto" pct={0.85} color="green" />
+
+          <MetricSlider label="Seu Metabolismo" value="Baixo" pct={0.2} color="red" />
+          <MetricSlider label="Seu Metabolismo" value="Alto" pct={0.85} color="green" />
+        </div>
+
+        <div className="rounded-2xl bg-[#D0F8D9] p-5 text-center border border-[#BCE8C5]">
+          <div className="text-[24px] font-black text-[#155A27]">Como funciona o Plano?</div>
+          <p className="mt-2 text-[15px] leading-relaxed text-[#1B4D27] font-medium">
             Com base nas suas informações pessoais e objetivos, criamos um plano de jejum 100% personalizado para você.
             Nossa abordagem estratégica foi feita para que você consiga potencializar sua perda de peso em 21 dias,
             respeitando seu estilo de vida, sua rotina e o que você gosta de comer.
           </p>
         </div>
 
-        <h3 className="mt-2 text-center text-2xl font-extrabold text-foreground">Seu plano inclui:</h3>
+        <h3 className="mt-2 text-center text-[26px] font-extrabold text-foreground">Seu plano inclui:</h3>
 
         <div className="flex flex-col gap-4">
           {PLAN_ITEMS.map((it) => (
             <div key={it.title} className="rounded-2xl border border-border bg-card p-6 text-center shadow-sm">
               <div className="mx-auto grid h-24 w-24 place-items-center text-5xl">{it.emoji}</div>
-              <div className="mt-4 text-[17px] font-extrabold leading-tight text-foreground">{it.title}</div>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.body}</p>
+              <div className="mt-4 text-[18px] font-extrabold leading-tight text-foreground">{it.title}</div>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{it.body}</p>
             </div>
           ))}
         </div>
 
         <OfferCard onCTA={onCTA} />
 
-        {/* Before/after photos placeholders */}
+        {/* Before/after photos */}
         <div>
-          <h3 className="mb-3 text-center text-lg font-extrabold text-foreground">Veja mudanças visíveis após uma semana</h3>
+          <h3 className="mb-4 text-center text-[22px] font-extrabold text-foreground">Veja mudanças visíveis após uma semana</h3>
           <div className="flex flex-col gap-3">
-            {["🧔‍♂️", "👨‍🦳", "🧔"].map((e, i) => (
-              <div key={i} className="grid grid-cols-2 overflow-hidden rounded-xl border border-border bg-muted">
-                <div className="grid aspect-square place-items-center text-6xl">{e}</div>
-                <div className="grid aspect-square place-items-center text-6xl">💪</div>
+            {["/transform-1.png", "/transform-2.png", "/transform-3.png", "/transform-4.png"].map((src, i) => (
+              <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-sm">
+                <img src={src} alt={`Transformação ${i + 1}`} className="w-full h-auto object-cover" />
               </div>
             ))}
           </div>
@@ -265,7 +312,7 @@ export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
 
         {/* Testimonials */}
         <div>
-          <h3 className="mb-3 text-center text-lg font-extrabold text-foreground">Veja as histórias de sucesso dos nossos alunos</h3>
+          <h3 className="mb-3 text-center text-[20px] font-extrabold text-foreground">Veja as histórias de sucesso dos nossos alunos</h3>
           <div className="flex flex-col gap-4">
             {TESTIMONIALS.map((t) => (
               <div key={t.name} className="rounded-2xl border border-border bg-card p-4 shadow-sm">
@@ -280,8 +327,8 @@ export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
                     ))}
                   </div>
                 </div>
-                <div className="mt-2 text-sm font-bold text-foreground">{t.title}</div>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.body}</p>
+                <div className="mt-2 text-[15px] font-bold text-foreground">{t.title}</div>
+                <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">{t.body}</p>
               </div>
             ))}
           </div>
@@ -290,16 +337,13 @@ export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
         <OfferCard onCTA={onCTA} />
 
         {/* Guarantee */}
-        <div className="mt-2 flex flex-col items-center gap-2 text-center">
-          <div className="text-5xl">🏅</div>
-          <div className="text-lg font-extrabold text-foreground">Garantia de reembolso</div>
-          <p className="text-sm text-muted-foreground">A compra deste material é totalmente sem risco para você.</p>
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-2 flex flex-col items-center gap-3 text-center">
+          <img src="/garantia-30dias.png" alt="Garantia de 30 dias" className="w-28 h-28 object-contain" />
+          <div className="text-[20px] font-extrabold text-foreground">Garantia de reembolso</div>
+          <p className="text-[15px] text-muted-foreground">A compra deste material é totalmente sem risco para você.</p>
+          <p className="text-[15px] text-muted-foreground">
             Se ele não atender às suas expectativas nos primeiros 30 dias após a compra, nós reembolsaremos todo o valor
             que você pagou, sem fazer perguntas.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Basta enviar um e-mail para o suporte em <span className="font-semibold text-foreground underline">suporte@secajejum.com</span>
           </p>
         </div>
       </div>
@@ -307,15 +351,20 @@ export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
   );
 }
 
-function MetricRow({ label, value, pct }: { label: string; value: string; pct: number }) {
+function MetricSlider({ label, value, pct, color }: { label: string; value: string; pct: number; color: "red" | "green" }) {
+  const fillColor = color === "red" ? "bg-[#FF3B30]" : "bg-[#34C759]";
   return (
-    <div className="flex flex-col gap-1">
-      <div className="text-[13px] font-bold text-foreground">{label}</div>
-      <div className="text-[12px] text-muted-foreground">{value}</div>
-      <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+    <div className="flex flex-col gap-1 w-full">
+      <div className="text-[13px] font-bold text-foreground leading-tight">{label}</div>
+      <div className="text-[11px] text-muted-foreground -mt-0.5">{value}</div>
+      <div className="relative h-1.5 w-full rounded-full bg-[#E5E5EA] mt-1.5">
         <div
-          className="h-full rounded-full bg-primary"
+          className={`h-full rounded-full ${fillColor}`}
           style={{ width: `${pct * 100}%` }}
+        />
+        <div 
+          className="absolute top-1/2 -translate-y-1/2 h-3.5 w-3.5 rounded-full border border-black/10 bg-white shadow-md"
+          style={{ left: `calc(${pct * 100}% - 7px)` }}
         />
       </div>
     </div>

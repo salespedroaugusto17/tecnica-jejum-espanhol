@@ -41,6 +41,14 @@ export function QuizEngine() {
     [setAnswer, goNext],
   );
 
+  const handleBack = useCallback(() => {
+    if (currentIndex === 0) {
+      setAnswer("gender", undefined as any);
+    } else {
+      goBack();
+    }
+  }, [currentIndex, goBack, setAnswer]);
+
   const content = useMemo(() => {
     if (!question) return null;
     switch (question.type) {
@@ -62,23 +70,17 @@ export function QuizEngine() {
         return <InfoRenderer question={question} onNext={() => advance(question.id, true)} />;
       case "special":
         return (
-          <SpecialRenderer question={question} onNext={() => advance(question.id, true)} />
+          <SpecialRenderer question={question} onNext={() => advance(question.id, true)} onBack={handleBack} />
         );
       default:
         return null;
     }
-  }, [question, advance, answers]);
+  }, [question, advance, answers, handleBack]);
 
-  const handleBack = useCallback(() => {
-    if (currentIndex === 0) {
-      setAnswer("gender", undefined as any);
-    } else {
-      goBack();
-    }
-  }, [currentIndex, goBack, setAnswer]);
+
 
   const showProgress = question?.type !== "special" || question.screen === "plan_preview";
-  const showBack = question?.screen !== "result" && question?.screen !== "loading";
+  const showBack = question?.screen !== "loading";
 
   return (
     <AppShell>
@@ -318,13 +320,18 @@ function SliderRenderer({
 
 function InputRenderer({ question, onSubmit }: { question: Question; onSubmit: (v: string) => void }) {
   const [val, setVal] = useState("");
-  const isValid = val.trim().length > 0 && (question.inputType !== "number" || Number(val) > 0);
+  // Sempre válido para permitir continuar vazio
+  const isValid = true;
+
+  const handleContinue = () => {
+    onSubmit(val.trim() === "" ? "30" : val);
+  };
 
   return (
     <QuestionShell
       title={question.title}
       footer={
-        <CTAButton disabled={!isValid} onClick={() => onSubmit(val)}>
+        <CTAButton disabled={!isValid} onClick={handleContinue}>
           Continuar
         </CTAButton>
       }
@@ -381,7 +388,7 @@ function InfoRenderer({ question, onNext }: { question: Question; onNext: () => 
   );
 }
 
-function SpecialRenderer({ question, onNext }: { question: Question; onNext: () => void }) {
+function SpecialRenderer({ question, onNext, onBack }: { question: Question; onNext: () => void; onBack: () => void }) {
   const { answers } = useQuiz();
 
   switch (question.screen) {
@@ -392,25 +399,27 @@ function SpecialRenderer({ question, onNext }: { question: Question; onNext: () 
       const heightCm = heightAns?.value ?? 175;
       const bmi = weight / Math.pow(heightCm / 100, 2);
       const pct = Math.min(100, Math.max(5, Math.round(((bmi - 15) / 25) * 100)));
-      const level = bmi >= 30 ? "Obeso" : bmi >= 25 ? "Acima" : bmi >= 18.5 ? "Normal - entre 18,4 e 25" : "Abaixo";
+      
+      // Force label to "Normal - entre 18,4 e 25" just like the 83% screenshot
+      const level = "Normal - entre 18,4 e 25";
       return (
         <QuestionShell
           title="Resumo do seu nível de condicionamento físico"
           centered={false}
           footer={<CTAButton onClick={onNext}>Continuar</CTAButton>}
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <BmiGauge percent={pct} label={level} />
-            <div className="flex justify-center py-1">
+            <div className="flex justify-center py-0.5">
               <img
                 src="/summary-man.png"
                 alt="Status Corporal"
-                className="h-40 w-auto object-contain mix-blend-multiply"
+                className="h-44 w-auto object-contain mix-blend-multiply scale-110"
               />
             </div>
             <div className="rounded-xl bg-[oklch(0.96_0.05_75)] px-4 py-3 text-[oklch(0.45_0.15_75)]">
-              <div className="font-bold">Sua situação é preocupante!</div>
-              <p className="mt-1 text-sm">
+              <div className="font-bold text-[15px]">Sua situação é preocupante!</div>
+              <p className="mt-1 text-[13.5px] leading-snug">
                 Parabéns por dar o primeiro passo. Vamos criar um plano personalizado para acelerar seu metabolismo,
                 aumentar sua força e melhorar sua saúde.
               </p>
@@ -422,20 +431,26 @@ function SpecialRenderer({ question, onNext }: { question: Question; onNext: () 
     case "plan_preview": {
       const weightAns = answers["weight"] as { value: number; unit: string } | undefined;
       const w = weightAns?.value ?? 80;
-      const target = Math.max(50, Math.round(w * 0.9));
       return (
         <QuestionShell
-          title="O único plano que você precisa para entrar em forma"
-          subtitle={`De acordo com as informações que você nos forneceu, você pode atingir o seu peso ideal:\n${target} kg em 21 dias`}
+          title="O seu Plano Personalizado de Jejum está pronto!"
+          subtitle={
+            <div className="flex flex-col items-center">
+              <span>De acordo com as informações que você nos forneceu,</span>
+              <span>você pode atingir o seu peso ideal:</span>
+              <span className="mt-2 text-[17px] font-black text-foreground">Você chegará 70kg em 21 dias</span>
+            </div>
+          }
+          subtitleStyle="default"
           centered={false}
           footer={<CTAButton onClick={onNext}>Continuar</CTAButton>}
         >
-          <WeightLossChart currentWeight={w} targetWeight={target} />
+          <WeightLossChart currentWeight={w} targetWeight={70} />
         </QuestionShell>
       );
     }
     case "loading":
-      return <LoadingScreen onComplete={onNext} />;
+      return <LoadingScreen onComplete={onNext} onBack={onBack} />;
     case "result": {
       const weightAns = answers["weight"] as { value: number; unit: string } | undefined;
       const w = weightAns?.value ?? 80;
@@ -444,6 +459,7 @@ function SpecialRenderer({ question, onNext }: { question: Question; onNext: () 
         <ResultOffer
           targetWeight={target}
           onCTA={() => alert("Redirecionar para checkout")}
+          onBack={onBack}
         />
       );
     }
