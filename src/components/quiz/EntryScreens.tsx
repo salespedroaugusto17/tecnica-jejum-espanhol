@@ -11,7 +11,7 @@ export function IntroLanding({ onStart }: { onStart: () => void }) {
   return (
     <AppShell>
       <Header showBack={false} progress={0.03} />
-      <div className="flex flex-1 flex-col items-center justify-between px-5 pt-4 pb-6">
+      <div className="flex flex-1 flex-col items-center justify-between px-5 pt-4 pb-6 overflow-y-auto no-scrollbar min-h-0">
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-balance text-center text-[23px] font-black leading-[1.15] tracking-tight text-foreground">
             Esse <span className="text-primary">Método de Jejum Adaptado</span> está ajudando Homens e Mulheres a{" "}
@@ -30,7 +30,7 @@ export function IntroLanding({ onStart }: { onStart: () => void }) {
           />
         </div>
 
-        <div className="w-full z-10 pb-2">
+        <div className="w-full z-10 pb-2 shrink-0">
           <CTAButton onClick={onStart}>QUERO APRENDER TAMBÉM! 😱</CTAButton>
         </div>
       </div>
