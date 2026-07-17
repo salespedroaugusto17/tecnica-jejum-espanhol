@@ -46,10 +46,10 @@
       "type": "single",
       "title": "Qual é o seu objetivo corporal?",
       "options": [
-        { "id": "skinny", "label": "Magro", "emoji": "🧍", "image": "/body-magro.png" },
-        { "id": "in_shape", "label": "Em forma", "emoji": "💪", "image": "/body-magro.png" },
-        { "id": "defined", "label": "Definido", "emoji": "🏋️", "image": "/body-magro.png" },
-        { "id": "ripped", "label": "Rasgado", "emoji": "🔥", "image": "/body-magro.png" }
+        { "id": "skinny", "label": "Magro", "emoji": "🧍", "image": "/goal-man-magro.png" },
+        { "id": "in_shape", "label": "Em forma", "emoji": "💪", "image": "/goal-man-emforma.png" },
+        { "id": "defined", "label": "Definido", "emoji": "🏋️", "image": "/goal-man-definido.png" },
+        { "id": "ripped", "label": "Rasgado", "emoji": "🔥", "image": "/goal-man-rasgado.png" }
       ]
     },
     {
@@ -65,9 +65,9 @@
       "minSelected": 1,
       "options": [
         { "id": "arms", "label": "Braços", "emoji": "💪", "image": "/focus-arms.png", "imagePosition": "left" },
-        { "id": "chest", "label": "Peito", "emoji": "🫁", "image": "/focus-chest.png", "imagePosition": "left" },
-        { "id": "belly", "label": "Barriga", "emoji": "🧍‍♂️", "image": "/focus-belly.png", "imagePosition": "left" },
-        { "id": "legs", "label": "Pernas", "emoji": "🦵", "image": "/focus-legs.png", "imagePosition": "left" },
+        { "id": "chest", "label": "Peito", "emoji": "🫁", "image": "/focus-chest-man.png", "imagePosition": "left" },
+        { "id": "belly", "label": "Barriga", "emoji": "🧍‍♂️", "image": "/focus-belly-man.png", "imagePosition": "left" },
+        { "id": "legs", "label": "Pernas", "emoji": "🦵", "image": "/focus-legs-man.png", "imagePosition": "left" },
         { "id": "back", "label": "Costas", "emoji": "🤸", "image": "/focus-back.png", "imagePosition": "left" }
       ]
     },
@@ -433,6 +433,12 @@
         { "id": "other", "label": "Outro", "emoji": "🤷" },
         { "id": "none", "label": "Não tenho nenhum evento", "emoji": "❌" }
       ]
+    },
+    {
+      "id": "shape_plan",
+      "type": "special",
+      "title": "O único plano que você precisa para entrar em forma",
+      "screen": "shape_plan"
     },
     {
       "id": "loading",

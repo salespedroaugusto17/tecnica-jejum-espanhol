@@ -11,7 +11,7 @@ interface Testimonial {
   image?: string;
 }
 
-const TESTIMONIALS: Testimonial[] = [
+const TESTIMONIALS_FEMALE: Testimonial[] = [
   {
     name: "Rogéria Cardoso",
     title: "Realmente esse Plano é incrível",
@@ -20,11 +20,11 @@ const TESTIMONIALS: Testimonial[] = [
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80",
   },
   {
-    name: "Sérgio Augusto",
-    title: "Nunca tinha visto nenhum conteúdo parecido!",
+    name: "Gleide Almeida",
+    title: "Extremamente satisfeita",
     body:
-      "O conteúdo de vcs se encaixou perfeitamente com o que eu precisava. Eu sempre gostei de correr mas de 4 anos pra cá eu não conseguia, estava acima do peso e era muito complicado... Foi quando eu conheci o plano personalizado de jejum de vocês, perdi um pouco mais de 10kg... E no final de semana passado voltei a correr, só agradecer!!",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80",
+      "Fiquei muito feliz com o conteúdo. Depois de consumir todo o material e começar a fazer o jejum, finalmente consegui o que eu queria... Eu sempre fui aquelas pessoas que emagrecem mas logo dps engordava dnv, e graças ao plano personalizado de vocês isso mudou. Já estou a 6 meses com o mesmo peso, nunca consegui isso na minha vida!! obrigada.",
+    image: "/avatar-gleide.png",
   },
   {
     name: "Cláudia Santos",
@@ -35,17 +35,29 @@ const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
+const TESTIMONIALS_MALE: Testimonial[] = [
+  {
+    name: "Sérgio Augusto",
+    title: "Nunca tinha visto nenhum conteúdo parecido!",
+    body:
+      "O conteúdo de vcs se encaixou perfeitamente com o que eu precisava. Eu sempre gostei de correr mas de 4 anos pra cá eu não conseguia, estava acima do peso e era muito complicado... Foi quando eu conheci o plano personalizado de jejum de vocês, perdi um pouco mais de 10kg... E no final de semana passado voltei a correr, só agradecer!!",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80",
+  },
+];
+
 interface LoadingScreenProps {
   onComplete: () => void;
   onBack?: () => void;
+  gender?: string;
 }
 
 /** Simulated AI plan-building loading, with rotating testimonial cards. */
-export function LoadingScreen({ onComplete, onBack }: LoadingScreenProps) {
+export function LoadingScreen({ onComplete, onBack, gender }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);
   const [tIndex, setTIndex] = useState(0);
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;
+  const testimonials = gender === "female" ? TESTIMONIALS_FEMALE : TESTIMONIALS_MALE;
 
   useEffect(() => {
     const total = 7000; // Exatamente 7 segundos
@@ -70,10 +82,10 @@ export function LoadingScreen({ onComplete, onBack }: LoadingScreenProps) {
   // Rotacionar depoimentos de 3.5 em 3.5 segundos (mais lento)
   useEffect(() => {
     const id = setInterval(() => {
-      setTIndex((i) => (i + 1) % TESTIMONIALS.length);
+      setTIndex((i) => (i + 1) % testimonials.length);
     }, 3500);
     return () => clearInterval(id);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <div className="flex flex-1 flex-col gap-5 px-5 py-4 min-h-0 overflow-y-auto no-scrollbar">
@@ -109,7 +121,7 @@ export function LoadingScreen({ onComplete, onBack }: LoadingScreenProps) {
       </div>
 
       <div className="relative min-h-[220px] w-full flex items-center justify-center">
-        {TESTIMONIALS.map((t, i) => {
+        {testimonials.map((t, i) => {
           const isActive = i === tIndex;
           return (
             <motion.div
@@ -174,6 +186,8 @@ const PLAN_ITEMS: PlanIncludeItem[] = [
 interface OfferProps {
   targetWeight: number;
   onCTA: () => void;
+  onBack?: () => void;
+  gender?: string;
 }
 
 function CountdownTimer() {
@@ -199,24 +213,28 @@ function CountdownTimer() {
   );
 }
 
-function OfferCard({ onCTA }: { onCTA: () => void }) {
+function OfferCard({ onCTA, gender }: { onCTA: () => void; gender?: string }) {
+  const isFemale = gender === "female";
+  const parcelado = isFemale ? "7,29" : "5,32";
+  const aVista = isFemale ? "37,00" : "27,00";
+
   return (
     <div className="flex flex-col gap-3">
       <div className="overflow-hidden rounded-2xl border-2 border-primary">
-        <div className="bg-primary py-1.5 text-center text-xs font-semibold text-primary-foreground">
+        <div className="bg-primary py-2.5 text-center text-sm font-semibold text-primary-foreground">
           De R$ 197,90 por apenas 👇
         </div>
-        <div className="flex items-center justify-between gap-3 bg-background p-4">
-          <div className="text-[15px] font-bold leading-tight text-foreground">
+        <div className="flex items-center justify-between gap-4 bg-background p-5">
+          <div className="text-[17px] font-bold leading-tight text-foreground">
             Plano de Jejum
             <br />Personalizado
           </div>
-          <div className="rounded-lg bg-muted px-3 py-2 text-right">
-            <div className="text-[10px] font-medium text-muted-foreground">6x de</div>
+          <div className="rounded-lg bg-muted px-4 py-3 text-right">
+            <div className="text-[11px] font-medium text-muted-foreground">6x de</div>
             <div className="text-xl font-extrabold text-foreground">
-              R$<span className="text-2xl">5,32</span>
+              R$<span className="text-3xl font-black">{parcelado}</span>
             </div>
-            <div className="text-[10px] font-medium text-muted-foreground">Ou R$27,00 à vista</div>
+            <div className="text-[11px] font-medium text-muted-foreground">Ou R${aVista} à vista</div>
           </div>
         </div>
       </div>
@@ -234,23 +252,27 @@ function OfferCard({ onCTA }: { onCTA: () => void }) {
 }
 
 /** Full result / offer page — mirrors screenshots 42-56. */
-export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
+export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
+  const agoraMetaImg = gender === "female" ? "/agora-meta-female.png" : "/agora-meta.png";
+  const testimonials = gender === "female" ? TESTIMONIALS_FEMALE : TESTIMONIALS_MALE;
   return (
     <div className="flex-1 overflow-y-auto px-5 pb-16 pt-2 no-scrollbar relative">
-      <div className="mx-auto flex w-full max-w-[400px] flex-col gap-6">
+      <div className="mx-auto flex w-full flex-col gap-6">
         <h2 className="text-center text-[24px] font-extrabold leading-tight text-foreground">
           O seu Plano Personalizado de Jejum está pronto!
         </h2>
 
         {/* Antes/Depois */}
         <div className="overflow-hidden rounded-2xl border border-border">
-          <div className="grid grid-cols-2 divide-x divide-border bg-[#F5F2EB] text-center text-sm font-bold text-foreground">
-            <div className="py-2">Agora</div>
-            <div className="py-2">Meta</div>
-          </div>
+          {gender !== "female" && (
+            <div className="grid grid-cols-2 divide-x divide-border bg-[#F5F2EB] text-center text-sm font-bold text-foreground">
+              <div className="py-2">Agora</div>
+              <div className="py-2">Meta</div>
+            </div>
+          )}
           <div className="bg-[#EFECE3] p-1.5 flex justify-center">
             <img 
-              src="/agora-meta.png" 
+              src={agoraMetaImg} 
               alt="Antes e Depois" 
               className="w-full h-auto object-contain rounded-xl"
             />
@@ -296,13 +318,16 @@ export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
           ))}
         </div>
 
-        <OfferCard onCTA={onCTA} />
+        <OfferCard onCTA={onCTA} gender={gender} />
 
         {/* Before/after photos */}
         <div>
           <h3 className="mb-4 text-center text-[22px] font-extrabold text-foreground">Veja mudanças visíveis após uma semana</h3>
           <div className="flex flex-col gap-3">
-            {["/transform-1.png", "/transform-2.png", "/transform-3.png", "/transform-4.png"].map((src, i) => (
+            {(gender === "female"
+              ? ["/transform-female-1.png", "/transform-female-2.png", "/transform-female-3.png", "/transform-female-4.png", "/transform-female-5.png"]
+              : ["/transform-1.png", "/transform-2.png", "/transform-3.png", "/transform-4.png"]
+            ).map((src, i) => (
               <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-sm">
                 <img src={src} alt={`Transformação ${i + 1}`} className="w-full h-auto object-cover" />
               </div>
@@ -314,7 +339,7 @@ export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
         <div>
           <h3 className="mb-3 text-center text-[20px] font-extrabold text-foreground">Veja as histórias de sucesso dos nossos alunos</h3>
           <div className="flex flex-col gap-4">
-            {TESTIMONIALS.map((t) => (
+            {testimonials.map((t) => (
               <div key={t.name} className="rounded-2xl border border-border bg-card p-4 shadow-sm">
                 <div className="flex items-center gap-2">
                   <div className="grid h-8 w-8 place-items-center rounded-full bg-muted text-sm font-semibold">
@@ -334,13 +359,13 @@ export function ResultOffer({ targetWeight, onCTA }: OfferProps) {
           </div>
         </div>
 
-        <OfferCard onCTA={onCTA} />
+        <OfferCard onCTA={onCTA} gender={gender} />
 
         {/* Guarantee */}
         <div className="mt-2 flex flex-col items-center gap-3 text-center">
-          <img src="/garantia-30dias.png" alt="Garantia de 30 dias" className="w-28 h-28 object-contain" />
+          <img src="/garantia-30dias.png" alt="Garantia de 30 dias" className="w-24 h-24 object-contain" />
           <div className="text-[20px] font-extrabold text-foreground">Garantia de reembolso</div>
-          <p className="text-[15px] text-muted-foreground">A compra deste material é totalmente sem risco para você.</p>
+          <p className="text-[14px] text-muted-foreground whitespace-nowrap">A compra deste material é totalmente sem risco para você.</p>
           <p className="text-[15px] text-muted-foreground">
             Se ele não atender às suas expectativas nos primeiros 30 dias após a compra, nós reembolsaremos todo o valor
             que você pagou, sem fazer perguntas.

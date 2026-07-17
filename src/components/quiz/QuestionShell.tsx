@@ -21,19 +21,19 @@ export function QuestionShell({
   return (
     <div className="flex flex-1 flex-col min-h-0">
       <div
-        className={`flex-1 overflow-y-auto px-5 pb-2 no-scrollbar ${
+        className={`flex-1 overflow-y-auto px-5 pb-6 no-scrollbar ${
           centered ? "flex flex-col justify-center pt-2" : "pt-2"
         }`}
       >
-        <div className="mx-auto w-full">
-          <h2 className="text-balance text-center text-[25px] font-black leading-[1.12] text-foreground tracking-tight">
+        <div className="mx-auto w-full flex flex-col">
+          <h2 className="text-center text-[27px] font-black leading-[1.12] text-foreground tracking-tight">
             {title}
           </h2>
           {subtitle && (
-            <p className={`mt-1.5 text-pretty text-center leading-snug ${
+            <p className={`mt-2.5 text-center leading-snug ${
               subtitleStyle === "small-muted"
-                ? "text-[13px] font-medium text-muted-foreground"
-                : "text-[15.5px] font-medium text-foreground/90"
+                ? "text-[15px] font-semibold text-muted-foreground"
+                : "text-[17.5px] font-semibold text-foreground/95"
             }`}>
               {typeof subtitle === "string" && subtitle.includes("Seca Jejum Turbo") ? (
                 <>
@@ -46,14 +46,15 @@ export function QuestionShell({
               )}
             </p>
           )}
-          <div className="mt-4 flex flex-col gap-2.5">{children}</div>
+          <div className="mt-5 flex flex-col gap-3">{children}</div>
+          
+          {footer && (
+            <div className="mt-6 w-full shrink-0 z-20">
+              {footer}
+            </div>
+          )}
         </div>
       </div>
-      {footer && (
-        <div className="shrink-0 z-20 bg-gradient-to-t from-background via-background to-background/0 px-5 pt-2 pb-4">
-          <div className="mx-auto w-full">{footer}</div>
-        </div>
-      )}
     </div>
   );
 }

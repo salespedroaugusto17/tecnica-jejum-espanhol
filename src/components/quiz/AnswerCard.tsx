@@ -36,8 +36,8 @@ export function AnswerCard({
   children,
 }: AnswerCardProps) {
   const selClass = selected ? (showCheck ? "card-outline" : "card-selected") : "";
-  const padY = size === "sm" ? "py-2.5" : "py-4.5";
-  const titleSize = size === "sm" ? "text-[15px]" : "text-[17px]";
+  const padY = size === "sm" ? "py-3" : "py-5";
+  const titleSize = size === "sm" ? "text-[17px]" : "text-[19px]";
 
   return (
     <motion.button
@@ -48,7 +48,7 @@ export function AnswerCard({
       aria-pressed={selected}
     >
       {image && imagePosition === "left" && (
-        <div className="relative -my-px w-20 shrink-0 overflow-hidden rounded-l-[10px]">
+        <div className="relative -my-px w-20 shrink-0 overflow-hidden rounded-l-[inherit]">
           <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
         </div>
       )}
@@ -63,7 +63,7 @@ export function AnswerCard({
           {description ? (
             <>
               <div className={`${titleSize} font-bold leading-tight`}>{title}</div>
-              <div className="mt-0.5 text-[15px] leading-snug opacity-80">{description}</div>
+              <div className="mt-0.5 text-[17px] leading-snug opacity-80">{description}</div>
             </>
           ) : (
             <div className={`${titleSize} font-semibold leading-snug`}>{title}</div>
@@ -73,21 +73,19 @@ export function AnswerCard({
 
         {showCheck && (
           <div
-            className={`grid h-5 w-5 shrink-0 place-items-center rounded-[6px] border-2 transition-colors ${
+            className={`h-6 w-6 shrink-0 rounded-[8px] border-2 transition-colors ${
               selected
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border-strong bg-transparent"
+                ? "border-primary"
+                : "border-border-strong"
             }`}
             aria-hidden
-          >
-            {selected && <Check className="h-3 w-3" strokeWidth={4} />}
-          </div>
+          />
         )}
       </div>
 
       {image && imagePosition === "right" && (
-        <div className="relative -my-px w-20 shrink-0 overflow-hidden rounded-r-[10px]">
-          <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
+        <div className="relative -my-px w-[105px] shrink-0 overflow-hidden rounded-r-[inherit]">
+          <img src={image} alt="" className="h-full w-full object-cover object-center" loading="lazy" />
         </div>
       )}
     </motion.button>

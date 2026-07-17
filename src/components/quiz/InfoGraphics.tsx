@@ -10,7 +10,7 @@ export function EnergyChart(_: EnergyChartProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="mx-auto w-full scale-110 origin-center py-2"
+      className="mx-auto w-[112%] -ml-[6%] py-1 flex justify-center"
     >
       <img
         src="/energy-chart.png"
@@ -23,51 +23,33 @@ export function EnergyChart(_: EnergyChartProps) {
 
 /** Metabolism decline chart with bars + red weight line. */
 export function MetabolismChart() {
-  const bars = [82, 76, 66, 48, 38, 30, 26, 24];
   return (
-    <div className="relative mx-auto flex h-48 w-full max-w-[380px] items-end gap-1.5 rounded-2xl bg-muted/40 p-4">
-      {bars.map((h, i) => (
-        <motion.div
-          key={i}
-          initial={{ height: 0 }}
-          animate={{ height: `${h}%` }}
-          transition={{ delay: 0.05 * i, duration: 0.6 }}
-          className="flex-1 rounded-t-md bg-gradient-to-t from-[oklch(0.78_0.18_60)] to-[oklch(0.86_0.15_75)]"
-        />
-      ))}
-      {/* weight curve (SVG overlay) */}
-      <svg
-        viewBox="0 0 200 120"
-        className="pointer-events-none absolute inset-4"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M 0 30 C 40 30, 70 50, 110 80 S 180 110, 200 115"
-          fill="none"
-          stroke="oklch(0.65 0.20 25)"
-          strokeWidth="2.5"
-          />
-      </svg>
-      <div className="pointer-events-none absolute right-6 top-6 rounded-md bg-[oklch(0.65_0.20_25)] px-2 py-0.5 text-[10px] font-bold text-white">
-        Peso
-      </div>
-      <div className="pointer-events-none absolute bottom-6 left-6 rounded-md bg-primary px-2 py-0.5 text-[10px] font-bold text-primary-foreground">
-        Metabolismo
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mx-auto w-[112%] -ml-[6%] py-1 flex justify-center"
+    >
+      <img
+        src="/energy-chart.png"
+        alt="Gráfico de Metabolismo"
+        className="w-full h-auto"
+      />
+    </motion.div>
   );
 }
 
-export function FaceTransform() {
+export function FaceTransform({ gender }: { gender?: string }) {
+  const imageSrc = gender === "female" ? "/face-transformation-female.png" : "/face-transformation.png";
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
-      className="mx-auto w-full scale-105"
+      className="mx-auto w-[112%] -ml-[6%] py-1"
     >
       <img
-        src="/face-transformation.png"
+        src={imageSrc}
         alt="Transformação do Rosto pelo Jejum"
         className="w-full h-auto rounded-2xl"
       />
@@ -76,16 +58,17 @@ export function FaceTransform() {
 }
 
 /** Trio of men illustration (social proof). */
-export function TrioMen() {
+export function TrioMen({ gender }: { gender?: string }) {
+  const imageSrc = gender === "male" ? "/trio_men.png" : "/radial_people.png";
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
-      className="mx-auto flex w-full max-w-[360px] items-center justify-center relative mt-4 mb-4"
+      className="mx-auto flex w-[110%] -ml-[5%] items-center justify-center relative mt-2 mb-2"
     >
       <img 
-        src="/radial_people.png" 
+        src={imageSrc} 
         alt="Milhares de pessoas já escolheram" 
         className="w-full h-auto object-contain drop-shadow-sm"
       />
@@ -94,27 +77,35 @@ export function TrioMen() {
 }
 
 /** BMI gauge with tick marker. */
-export function BmiGauge({ percent = 83, label = "Normal - entre 18,4 e 25" }: { percent?: number; label?: string }) {
+export function BmiGauge({ percent = 83, label = "Normal - entre 18,4 e 25", large = false }: { percent?: number; label?: string; large?: boolean }) {
   // Forçar sempre a mostrar 83%
   const displayPercent = 83;
   const displayLabel = "Normal - entre 18,4 e 25";
   
+  const titleClass = large ? "font-semibold text-foreground text-lg" : "font-semibold text-foreground text-base";
+  const pctClass = large ? "font-bold text-foreground text-xl" : "font-bold text-foreground text-base";
+  const labelClass = large ? "mt-1.5 text-base font-semibold text-muted-foreground/80" : "mt-1 text-sm font-semibold text-muted-foreground/80";
+  const barClass = large ? "relative mt-3.5 h-3 w-full rounded-full bg-gradient-to-r from-[oklch(0.72_0.15_155)] via-[oklch(0.82_0.15_85)] to-[oklch(0.62_0.22_25)]" : "relative mt-2.5 h-2 w-full rounded-full bg-gradient-to-r from-[oklch(0.72_0.15_155)] via-[oklch(0.82_0.15_85)] to-[oklch(0.62_0.22_25)]";
+  const tickClass = large ? "absolute -top-1 h-5 w-5 rounded-full border-2 border-primary bg-background shadow-md" : "absolute -top-1 h-4 w-4 rounded-full border-2 border-primary bg-background shadow-md";
+  const tickOffset = large ? "calc(83% - 10px)" : "calc(83% - 8px)";
+  const bottomLabelsClass = large ? "mt-2 flex justify-between text-sm font-semibold text-muted-foreground/80" : "mt-1.5 flex justify-between text-xs font-semibold text-muted-foreground/80";
+
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between text-base">
-        <div className="font-semibold text-foreground">Índice de massa corporal (IMC)</div>
-        <div className="font-bold text-foreground">{displayPercent}%</div>
+      <div className="flex items-center justify-between">
+        <div className={titleClass}>Índice de massa corporal (IMC)</div>
+        <div className={pctClass}>{displayPercent}%</div>
       </div>
-      <div className="mt-1 text-sm font-semibold text-muted-foreground/80">{displayLabel}</div>
-      <div className="relative mt-2.5 h-2 w-full rounded-full bg-gradient-to-r from-[oklch(0.72_0.15_155)] via-[oklch(0.82_0.15_85)] to-[oklch(0.62_0.22_25)]">
+      <div className={labelClass}>{displayLabel}</div>
+      <div className={barClass}>
         <motion.div
-          className="absolute -top-1 h-4 w-4 rounded-full border-2 border-primary bg-background shadow-md"
+          className={tickClass}
           initial={{ left: "0%" }}
-          animate={{ left: `calc(${displayPercent}% - 8px)` }}
+          animate={{ left: tickOffset }}
           transition={{ duration: 0.9, ease: "easeOut" }}
         />
       </div>
-      <div className="mt-1.5 flex justify-between text-xs font-semibold text-muted-foreground/80">
+      <div className={bottomLabelsClass}>
         <span>Anormal</span>
         <span className="-ml-3">Normal</span>
         <span>Obeso</span>

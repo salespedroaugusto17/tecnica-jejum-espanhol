@@ -67,7 +67,7 @@ export function QuizEngine() {
       case "input":
         return <InputRenderer question={question} onSubmit={(v) => advance(question.id, v)} />;
       case "info":
-        return <InfoRenderer question={question} onNext={() => advance(question.id, true)} />;
+        return <InfoRenderer question={question} onNext={() => advance(question.id, true)} gender={answers.gender} />;
       case "special":
         return (
           <SpecialRenderer question={question} onNext={() => advance(question.id, true)} onBack={handleBack} />
@@ -354,7 +354,7 @@ function InputRenderer({ question, onSubmit }: { question: Question; onSubmit: (
   );
 }
 
-function InfoRenderer({ question, onNext }: { question: Question; onNext: () => void }) {
+function InfoRenderer({ question, onNext, gender }: { question: Question; onNext: () => void; gender?: string }) {
   const chart = (() => {
     switch (question.content) {
       case "energy_chart":
@@ -362,9 +362,9 @@ function InfoRenderer({ question, onNext }: { question: Question; onNext: () => 
       case "metabolism_chart":
         return <MetabolismChart />;
       case "face_transform":
-        return <FaceTransform />;
+        return <FaceTransform gender={gender} />;
       case "trio_men":
-        return <TrioMen />;
+        return <TrioMen gender={gender} />;
       default:
         return null;
     }
@@ -402,29 +402,54 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
       
       // Force label to "Normal - entre 18,4 e 25" just like the 83% screenshot
       const level = "Normal - entre 18,4 e 25";
+      const summaryImage = answers.gender === "female" ? "/summary-female.png" : "/summary-man.png";
       return (
         <QuestionShell
           title="Resumo do seu nível de condicionamento físico"
           centered={false}
           footer={<CTAButton onClick={onNext}>Continuar</CTAButton>}
         >
-          <div className="flex flex-col gap-3">
-            <BmiGauge percent={pct} label={level} />
-            <div className="flex justify-center py-0.5">
+          <div className="flex flex-col gap-5 pt-2">
+            <BmiGauge percent={pct} label={level} large />
+            <div className="flex justify-center py-1">
               <img
-                src="/summary-man.png"
+                src={summaryImage}
                 alt="Status Corporal"
-                className="h-44 w-auto object-contain mix-blend-multiply scale-110"
+                className="h-52 w-auto object-contain mix-blend-multiply scale-100"
               />
             </div>
-            <div className="rounded-xl bg-[oklch(0.96_0.05_75)] px-4 py-3 text-[oklch(0.45_0.15_75)]">
-              <div className="font-bold text-[15px]">Sua situação é preocupante!</div>
-              <p className="mt-1 text-[13.5px] leading-snug">
+            <div className="rounded-2xl bg-[oklch(0.96_0.05_75)] px-6 py-5 text-[oklch(0.45_0.15_75)] shadow-sm">
+              <div className="font-black text-[18px]">Sua situação é preocupante!</div>
+              <p className="mt-2 text-[16px] font-medium leading-relaxed">
                 Parabéns por dar o primeiro passo. Vamos criar um plano personalizado para acelerar seu metabolismo,
                 aumentar sua força e melhorar sua saúde.
               </p>
             </div>
           </div>
+        </QuestionShell>
+      );
+    }
+    case "shape_plan": {
+      const weightAns = answers["weight"] as { value: number; unit: string } | undefined;
+      const w = weightAns?.value ?? 80;
+      return (
+        <QuestionShell
+          title="O único plano que você precisa para entrar em forma"
+          subtitle={
+            <div className="flex flex-col items-center text-center mt-2 leading-snug">
+              <span className="text-[16px] font-medium text-foreground/80">
+                De acordo com as informações que você nos forneceu, você pode atingir o seu peso ideal:
+              </span>
+              <span className="mt-2 text-[18px] font-black text-foreground underline decoration-[2.5px] underline-offset-4">
+                -10 kg em 21 dias
+              </span>
+            </div>
+          }
+          subtitleStyle="default"
+          centered={false}
+          footer={<CTAButton onClick={onNext}>Continuar</CTAButton>}
+        >
+          <WeightLossChart currentWeight={w} targetWeight={70} />
         </QuestionShell>
       );
     }
@@ -435,10 +460,13 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
         <QuestionShell
           title="O seu Plano Personalizado de Jejum está pronto!"
           subtitle={
-            <div className="flex flex-col items-center">
-              <span>De acordo com as informações que você nos forneceu,</span>
-              <span>você pode atingir o seu peso ideal:</span>
-              <span className="mt-2 text-[17px] font-black text-foreground">Você chegará 70kg em 21 dias</span>
+            <div className="flex flex-col items-center text-center mt-2 leading-snug">
+              <span className="text-[16px] font-medium text-foreground/80">
+                De acordo com as informações que você nos forneceu, você pode atingir o seu peso ideal:
+              </span>
+              <span className="mt-2 text-[18px] font-black text-foreground">
+                Você perderá 10kg em 21 dias
+              </span>
             </div>
           }
           subtitleStyle="default"
@@ -450,7 +478,7 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
       );
     }
     case "loading":
-      return <LoadingScreen onComplete={onNext} onBack={onBack} />;
+      return <LoadingScreen onComplete={onNext} onBack={onBack} gender={answers.gender} />;
     case "result": {
       const weightAns = answers["weight"] as { value: number; unit: string } | undefined;
       const w = weightAns?.value ?? 80;
@@ -460,6 +488,7 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
           targetWeight={target}
           onCTA={() => alert("Redirecionar para checkout")}
           onBack={onBack}
+          gender={answers.gender}
         />
       );
     }
