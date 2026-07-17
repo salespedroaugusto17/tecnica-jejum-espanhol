@@ -13,7 +13,7 @@ export function EnergyChart(_: EnergyChartProps) {
       className="mx-auto w-[112%] -ml-[6%] py-1 flex justify-center"
     >
       <img
-        src="/energy-chart.png"
+        src="/energy-chart.webp"
         alt="Gráfico de Calorias Vazias vs Energia — Hoje vs Depois"
         className="w-full h-auto"
       />
@@ -31,7 +31,7 @@ export function MetabolismChart() {
       className="mx-auto w-[112%] -ml-[6%] py-1 flex justify-center"
     >
       <img
-        src="/energy-chart.png"
+        src="/energy-chart.webp"
         alt="Gráfico de Metabolismo"
         className="w-full h-auto"
       />
@@ -40,7 +40,7 @@ export function MetabolismChart() {
 }
 
 export function FaceTransform({ gender }: { gender?: string }) {
-  const imageSrc = gender === "female" ? "/face-transformation-female.png" : "/face-transformation.png";
+  const imageSrc = gender === "female" ? "/face-transformation-female.webp" : "/face-transformation.webp";
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -59,7 +59,7 @@ export function FaceTransform({ gender }: { gender?: string }) {
 
 /** Trio of men illustration (social proof). */
 export function TrioMen({ gender }: { gender?: string }) {
-  const imageSrc = gender === "male" ? "/trio_men.png" : "/radial_people.png";
+  const imageSrc = gender === "male" ? "/trio_men.webp" : "/radial_people.webp";
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.95 }}

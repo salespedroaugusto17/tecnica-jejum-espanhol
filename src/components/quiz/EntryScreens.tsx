@@ -24,7 +24,7 @@ export function IntroLanding({ onStart }: { onStart: () => void }) {
 
         <div className="relative flex-1 w-full flex items-center justify-center min-h-0 my-2">
           <img 
-            src="/antes-depois.png" 
+            src="/antes-depois.webp" 
             alt="Antes e Depois" 
             className="w-[105%] max-w-[400px] max-h-[100%] object-contain"
           />
@@ -94,7 +94,7 @@ export function GenderSelect({ onBack }: { onBack?: () => void }) {
               >
                 <div className="flex-1 w-full overflow-hidden">
                   <img 
-                    src={g === "male" ? "/homem.png" : "/mulher.png"} 
+                    src={g === "male" ? "/homem.webp" : "/mulher.webp"} 
                     alt={g === "male" ? "Homem" : "Mulher"}
                     className="w-full h-full object-cover"
                   />

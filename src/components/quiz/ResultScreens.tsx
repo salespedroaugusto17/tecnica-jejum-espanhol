@@ -24,7 +24,7 @@ const TESTIMONIALS_FEMALE: Testimonial[] = [
     title: "Extremamente satisfeita",
     body:
       "Fiquei muito feliz com o conteúdo. Depois de consumir todo o material e começar a fazer o jejum, finalmente consegui o que eu queria... Eu sempre fui aquelas pessoas que emagrecem mas logo dps engordava dnv, e graças ao plano personalizado de vocês isso mudou. Já estou a 6 meses com o mesmo peso, nunca consegui isso na minha vida!! obrigada.",
-    image: "/avatar-gleide.png",
+    image: "/avatar-gleide.webp",
   },
   {
     name: "Cláudia Santos",
@@ -253,7 +253,7 @@ function OfferCard({ onCTA, gender }: { onCTA: () => void; gender?: string }) {
 
 /** Full result / offer page — mirrors screenshots 42-56. */
 export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
-  const agoraMetaImg = gender === "female" ? "/agora-meta-female.png" : "/agora-meta.png";
+  const agoraMetaImg = gender === "female" ? "/agora-meta-female.webp" : "/agora-meta.webp";
   const testimonials = gender === "female" ? TESTIMONIALS_FEMALE : TESTIMONIALS_MALE;
   return (
     <div className="flex-1 overflow-y-auto px-5 pb-16 pt-2 no-scrollbar relative">
@@ -325,8 +325,8 @@ export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
           <h3 className="mb-4 text-center text-[22px] font-extrabold text-foreground">Veja mudanças visíveis após uma semana</h3>
           <div className="flex flex-col gap-3">
             {(gender === "female"
-              ? ["/transform-female-1.png", "/transform-female-2.png", "/transform-female-3.png", "/transform-female-4.png", "/transform-female-5.png"]
-              : ["/transform-1.png", "/transform-2.png", "/transform-3.png", "/transform-4.png"]
+              ? ["/transform-female-1.webp", "/transform-female-2.webp", "/transform-female-3.webp", "/transform-female-4.webp", "/transform-female-5.webp"]
+              : ["/transform-1.webp", "/transform-2.webp", "/transform-3.webp", "/transform-4.webp"]
             ).map((src, i) => (
               <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-sm">
                 <img src={src} alt={`Transformação ${i + 1}`} className="w-full h-auto object-cover" />
@@ -363,7 +363,7 @@ export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
 
         {/* Guarantee */}
         <div className="mt-2 flex flex-col items-center gap-3 text-center">
-          <img src="/garantia-30dias.png" alt="Garantia de 30 dias" className="w-24 h-24 object-contain" />
+          <img src="/garantia-30dias.webp" alt="Garantia de 30 dias" className="w-24 h-24 object-contain" />
           <div className="text-[20px] font-extrabold text-foreground">Garantia de reembolso</div>
           <p className="text-[14px] text-muted-foreground whitespace-nowrap">A compra deste material é totalmente sem risco para você.</p>
           <p className="text-[15px] text-muted-foreground">

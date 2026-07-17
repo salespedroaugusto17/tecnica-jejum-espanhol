@@ -402,7 +402,7 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
       
       // Force label to "Normal - entre 18,4 e 25" just like the 83% screenshot
       const level = "Normal - entre 18,4 e 25";
-      const summaryImage = answers.gender === "female" ? "/summary-female.png" : "/summary-man.png";
+      const summaryImage = answers.gender === "female" ? "/summary-female.webp" : "/summary-man.webp";
       return (
         <QuestionShell
           title="Resumo do seu nível de condicionamento físico"

@@ -47,9 +47,9 @@
       "title": "Qual é o seu objetivo corporal?",
       "options": [
         { "id": "skinny", "label": "Magro", "emoji": "🧍", "image": "/goal-man-magro.png" },
-        { "id": "in_shape", "label": "Em forma", "emoji": "💪", "image": "/goal-man-emforma.png" },
-        { "id": "defined", "label": "Definido", "emoji": "🏋️", "image": "/goal-man-definido.png" },
-        { "id": "ripped", "label": "Rasgado", "emoji": "🔥", "image": "/goal-man-rasgado.png" }
+        { "id": "in_shape", "label": "Em forma", "emoji": "💪", "image": "/goal-man-emforma.webp" },
+        { "id": "defined", "label": "Definido", "emoji": "🏋️", "image": "/goal-man-definido.webp" },
+        { "id": "ripped", "label": "Rasgado", "emoji": "🔥", "image": "/goal-man-rasgado.webp" }
       ]
     },
     {
@@ -64,18 +64,18 @@
       "title": "Quais áreas do corpo você quer focar?",
       "minSelected": 1,
       "options": [
-        { "id": "arms", "label": "Braços", "emoji": "💪", "image": "/focus-arms.png", "imagePosition": "left" },
-        { "id": "chest", "label": "Peito", "emoji": "🫁", "image": "/focus-chest-man.png", "imagePosition": "left" },
-        { "id": "belly", "label": "Barriga", "emoji": "🧍‍♂️", "image": "/focus-belly-man.png", "imagePosition": "left" },
+        { "id": "arms", "label": "Braços", "emoji": "💪", "image": "/focus-arms.webp", "imagePosition": "left" },
+        { "id": "chest", "label": "Peito", "emoji": "🫁", "image": "/focus-chest-man.webp", "imagePosition": "left" },
+        { "id": "belly", "label": "Barriga", "emoji": "🧍‍♂️", "image": "/focus-belly-man.webp", "imagePosition": "left" },
         { "id": "legs", "label": "Pernas", "emoji": "🦵", "image": "/focus-legs-man.png", "imagePosition": "left" },
-        { "id": "back", "label": "Costas", "emoji": "🤸", "image": "/focus-back.png", "imagePosition": "left" }
+        { "id": "back", "label": "Costas", "emoji": "🤸", "image": "/focus-back.webp", "imagePosition": "left" }
       ]
     },
     {
       "id": "last_best_form",
       "type": "single",
       "title": "Faz quanto tempo que você se sentiu na sua melhor forma?",
-      "sideImage": "/best-form-man.png",
+      "sideImage": "/best-form-man.webp",
       "options": [
         { "id": "0-6m", "label": "0 a 6 meses atrás" },
         { "id": "7-12m", "label": "7 a 12 meses atrás" },
@@ -126,9 +126,9 @@
       "type": "single",
       "title": "Quando você costuma almoçar?",
       "options": [
-        { "id": "10-12", "label": "Entre 10h e 12h", "emoji": "🥗", "image": "/lunch-10-12.png" },
-        { "id": "12-14", "label": "Entre 12h e 14h", "emoji": "🥑", "image": "/lunch-12-14.png" },
-        { "id": "14-16", "label": "Entre 14h e 16h", "emoji": "🍤", "image": "/lunch-14-16.png" },
+        { "id": "10-12", "label": "Entre 10h e 12h", "emoji": "🥗", "image": "/lunch-10-12.webp" },
+        { "id": "12-14", "label": "Entre 12h e 14h", "emoji": "🥑", "image": "/lunch-12-14.webp" },
+        { "id": "14-16", "label": "Entre 14h e 16h", "emoji": "🍤", "image": "/lunch-14-16.webp" },
         { "id": "skip", "label": "Eu costumo pular o almoço", "emoji": "🥛", "image": "/lunch-skip.png" }
       ]
     },
@@ -137,9 +137,9 @@
       "type": "single",
       "title": "Quando você janta?",
       "options": [
-        { "id": "16-18", "label": "Entre 16h e 18h", "emoji": "🥗", "image": "/dinner-16-18.png" },
-        { "id": "18-20", "label": "Entre 18h e 20h", "emoji": "🥙", "image": "/dinner-18-20.png" },
-        { "id": "20-22", "label": "Entre 20h e 22h", "emoji": "🥑", "image": "/dinner-20-22.png" },
+        { "id": "16-18", "label": "Entre 16h e 18h", "emoji": "🥗", "image": "/dinner-16-18.webp" },
+        { "id": "18-20", "label": "Entre 18h e 20h", "emoji": "🥙", "image": "/dinner-18-20.webp" },
+        { "id": "20-22", "label": "Entre 20h e 22h", "emoji": "🥑", "image": "/dinner-20-22.webp" },
         { "id": "skip", "label": "Eu costumo pular o jantar", "emoji": "🥛", "image": "/lunch-skip.png" }
       ]
     },
@@ -228,7 +228,7 @@
       "id": "exercise_freq",
       "type": "single",
       "title": "Com que frequência você se exercita?",
-      "sideImage": "/exercise-man.png",
+      "sideImage": "/exercise-man.webp",
       "options": [
         { "id": "daily", "label": "Quase todos os dias" },
         { "id": "weekly", "label": "Várias vezes por semana" },
@@ -240,7 +240,7 @@
       "id": "work_routine",
       "type": "single",
       "title": "Como é a sua rotina de trabalho?",
-      "sideImage": "/work-man.png",
+      "sideImage": "/work-man.webp",
       "options": [
         { "id": "9to18", "label": "das 09:00 às 18:00" },
         { "id": "night", "label": "Turnos noturnos" },
@@ -284,7 +284,7 @@
       "id": "sleep_hours",
       "type": "single",
       "title": "Quantas horas você costuma dormir?",
-      "sideImage": "/sleep-man.png",
+      "sideImage": "/sleep-man.webp",
       "options": [
         { "id": "<5", "label": "Durmo pouco (menos de 5 horas)" },
         { "id": "5-6", "label": "Eu consigo dormir um pouco (5-6 horas)" },
@@ -296,7 +296,7 @@
       "id": "water_intake",
       "type": "single",
       "title": "Qual é a sua ingestão diária de água?",
-      "sideImage": "/water-man.png",
+      "sideImage": "/water-man.webp",
       "options": [
         { "id": "coffee_only", "label": "Eu só tomo café ou chá" },
         { "id": "~2", "label": "Cerca de 2 copos" },
