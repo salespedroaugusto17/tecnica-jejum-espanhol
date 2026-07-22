@@ -214,9 +214,8 @@ function CountdownTimer() {
 }
 
 function OfferCard({ onCTA, gender }: { onCTA: () => void; gender?: string }) {
-  const isFemale = gender === "female";
-  const parcelado = isFemale ? "7,29" : "5,32";
-  const aVista = isFemale ? "37,00" : "27,00";
+  const parcelado = "7,29";
+  const aVista = "37,00";
 
   return (
     <div className="flex flex-col gap-3">
