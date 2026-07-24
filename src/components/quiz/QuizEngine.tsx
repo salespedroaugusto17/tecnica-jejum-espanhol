@@ -486,7 +486,9 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
       return (
         <ResultOffer
           targetWeight={target}
-          onCTA={() => alert("Redirecionar para checkout")}
+          onCTA={() => {
+            window.location.href = "https://pay.cakto.com.br/3368npu_998861";
+          }}
           onBack={onBack}
           gender={answers.gender}
         />

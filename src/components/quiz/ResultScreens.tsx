@@ -213,9 +213,17 @@ function CountdownTimer() {
   );
 }
 
-function OfferCard({ onCTA, gender }: { onCTA: () => void; gender?: string }) {
+function OfferCard({ onCTA, gender }: { onCTA?: () => void; gender?: string }) {
   const parcelado = "5,72";
   const aVista = "29,00";
+
+  const handleCTA = () => {
+    if (onCTA) {
+      onCTA();
+    } else {
+      window.location.href = "https://pay.cakto.com.br/3368npu_998861";
+    }
+  };
 
   return (
     <div className="flex flex-col gap-3">
@@ -238,7 +246,7 @@ function OfferCard({ onCTA, gender }: { onCTA: () => void; gender?: string }) {
         </div>
       </div>
       <CountdownTimer />
-      <CTAButton onClick={onCTA} className="uppercase tracking-wide">
+      <CTAButton onClick={handleCTA} className="uppercase tracking-wide">
         Receber o meu plano
       </CTAButton>
       <div className="flex items-center justify-around text-[11px] font-medium text-foreground">
