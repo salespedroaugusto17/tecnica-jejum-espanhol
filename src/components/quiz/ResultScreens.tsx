@@ -24,7 +24,7 @@ const TESTIMONIALS_FEMALE: Testimonial[] = [
     title: "Extremamente satisfeita",
     body:
       "Fiquei muito feliz com o conteúdo. Depois de consumir todo o material e começar a fazer o jejum, finalmente consegui o que eu queria... Eu sempre fui aquelas pessoas que emagrecem mas logo dps engordava dnv, e graças ao plano personalizado de vocês isso mudou. Já estou a 6 meses com o mesmo peso, nunca consegui isso na minha vida!! obrigada.",
-    image: "/avatar-gleide.webp",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&q=80",
   },
   {
     name: "Cláudia Santos",
