@@ -106,7 +106,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    overscroll-behavior-y: none;
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.015em; }
   button { -webkit-tap-highlight-color: transparent; }
@@ -115,15 +114,13 @@
 /* App-like device frame */
 @utility app-shell {
   width: 100%;
-  max-width: 430px;
+  max-width: 480px;
   margin-inline: auto;
-  height: 100dvh;
-  max-height: 100dvh;
+  min-height: 100dvh;
   background-color: var(--color-background);
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   font-size: 1.05rem; /* global scale up */
 }
 

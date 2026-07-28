@@ -10,12 +10,12 @@ export function EnergyChart(_: EnergyChartProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="mx-auto w-[112%] -ml-[6%] py-1 flex justify-center"
+      className="mx-auto w-[95%] sm:w-[92%] max-w-[460px] py-1 flex justify-center"
     >
       <img
         src="/energy-chart.webp"
         alt="Gráfico de Calorias Vazias vs Energia — Hoje vs Depois"
-        className="w-full h-auto"
+        className="w-full h-auto object-contain mx-auto"
       />
     </motion.div>
   );
@@ -28,12 +28,12 @@ export function MetabolismChart() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="mx-auto w-[112%] -ml-[6%] py-1 flex justify-center"
+      className="mx-auto w-[95%] sm:w-[92%] max-w-[460px] py-1 flex justify-center"
     >
       <img
         src="/energy-chart.webp"
         alt="Gráfico de Metabolismo"
-        className="w-full h-auto"
+        className="w-full h-auto object-contain mx-auto"
       />
     </motion.div>
   );
@@ -46,12 +46,12 @@ export function FaceTransform({ gender }: { gender?: string }) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
-      className="mx-auto w-[112%] -ml-[6%] py-1"
+      className="mx-auto w-[95%] sm:w-[92%] max-w-[460px] py-1 flex justify-center"
     >
       <img
         src={imageSrc}
         alt="Transformação do Rosto pelo Jejum"
-        className="w-full h-auto rounded-2xl"
+        className="w-full h-auto rounded-2xl object-contain mx-auto"
       />
     </motion.div>
   );
@@ -65,12 +65,12 @@ export function TrioMen({ gender }: { gender?: string }) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
-      className="mx-auto flex w-[110%] -ml-[5%] items-center justify-center relative mt-2 mb-2"
+      className="mx-auto flex w-[95%] sm:w-[92%] max-w-[460px] items-center justify-center relative mt-2 mb-2"
     >
       <img 
         src={imageSrc} 
         alt="Milhares de pessoas já escolheram" 
-        className="w-full h-auto object-contain drop-shadow-sm"
+        className="w-full h-auto object-contain drop-shadow-sm mx-auto"
       />
     </motion.div>
   );

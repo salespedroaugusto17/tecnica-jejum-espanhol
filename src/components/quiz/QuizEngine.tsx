@@ -80,7 +80,7 @@ export function QuizEngine() {
 
 
   const showProgress = question?.type !== "special" || question.screen === "plan_preview";
-  const showBack = question?.screen !== "loading";
+  const showBack = true;
 
   return (
     <AppShell>
@@ -113,11 +113,11 @@ function SingleRenderer({ question, onPick }: { question: Question; onPick: (id:
   const content = (
     <div className={question.sideImage ? "flex gap-4 items-center justify-between min-h-0" : "flex flex-col gap-2.5"}>
       {question.sideImage && (
-        <div className="w-[42%] shrink-0 flex items-center justify-center min-h-0">
+        <div className="w-[45%] shrink-0 flex items-center justify-center min-h-0">
           <img 
             src={question.sideImage} 
             alt="" 
-            className="w-full h-auto object-contain max-h-[55vh] mix-blend-multiply" 
+            className="w-full h-auto object-contain mix-blend-multiply" 
           />
         </div>
       )}
@@ -409,18 +409,18 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
           centered={false}
           footer={<CTAButton onClick={onNext}>Continuar</CTAButton>}
         >
-          <div className="flex flex-col gap-5 pt-2">
+          <div className="flex flex-col gap-2 pt-0.5">
             <BmiGauge percent={pct} label={level} large />
-            <div className="flex justify-center py-1">
+            <div className="flex justify-center py-0.5">
               <img
                 src={summaryImage}
                 alt="Status Corporal"
-                className="h-52 w-auto object-contain mix-blend-multiply scale-100"
+                className="w-[40%] sm:w-[35%] max-w-[145px] h-auto object-contain mix-blend-multiply mx-auto"
               />
             </div>
-            <div className="rounded-2xl bg-[oklch(0.96_0.05_75)] px-6 py-5 text-[oklch(0.45_0.15_75)] shadow-sm">
-              <div className="font-black text-[18px]">Sua situação é preocupante!</div>
-              <p className="mt-2 text-[16px] font-medium leading-relaxed">
+            <div className="rounded-2xl bg-[oklch(0.96_0.05_75)] px-4 py-2.5 text-[oklch(0.45_0.15_75)] shadow-sm">
+              <div className="font-black text-[15px]">Sua situação é preocupante!</div>
+              <p className="mt-1 text-[13.5px] font-medium leading-snug">
                 Parabéns por dar o primeiro passo. Vamos criar um plano personalizado para acelerar seu metabolismo,
                 aumentar sua força e melhorar sua saúde.
               </p>

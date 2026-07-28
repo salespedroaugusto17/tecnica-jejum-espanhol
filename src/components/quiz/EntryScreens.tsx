@@ -11,7 +11,7 @@ export function IntroLanding({ onStart }: { onStart: () => void }) {
   return (
     <AppShell>
       <Header showBack={false} progress={0.03} />
-      <div className="flex flex-1 flex-col items-center justify-between px-5 pt-4 pb-6 overflow-y-auto no-scrollbar min-h-0">
+      <div className="flex flex-1 flex-col items-center justify-between px-5 pt-4 pb-6 w-full min-h-[calc(100dvh-70px)]">
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-balance text-center text-[23px] font-black leading-[1.15] tracking-tight text-foreground">
             Esse <span className="text-primary">Método de Jejum Adaptado</span> está ajudando Homens e Mulheres a{" "}
@@ -22,11 +22,11 @@ export function IntroLanding({ onStart }: { onStart: () => void }) {
           </p>
         </div>
 
-        <div className="relative flex-1 w-full flex items-center justify-center min-h-0 my-2">
+        <div className="w-full flex items-center justify-center my-3 py-1">
           <img 
             src="/antes-depois.webp" 
             alt="Antes e Depois" 
-            className="w-[105%] max-w-[400px] max-h-[100%] object-contain"
+            className="w-[95%] sm:w-[92%] max-w-[460px] h-auto object-contain mx-auto"
           />
         </div>
 
@@ -73,11 +73,11 @@ export function GenderSelect({ onBack }: { onBack?: () => void }) {
   return (
     <AppShell>
       <Header showBack={true} onBack={onBack} progress={0.05} />
-      <div className="flex flex-1 flex-col items-center justify-center gap-5 px-5 pb-8">
+      <div className="flex flex-1 flex-col items-center justify-center gap-5 px-5 py-6 w-full min-h-[calc(100dvh-70px)]">
         <h1 className="text-center text-[28px] font-black text-foreground tracking-tight">
           Jejum Intermitente para:
         </h1>
-        <div className="grid w-full grid-cols-2 gap-3 max-h-[60vh]">
+        <div className="grid w-full grid-cols-2 gap-3 my-auto">
           {(["male", "female"] as const).map((g) => {
             const active = hovered === g;
             return (
@@ -86,21 +86,21 @@ export function GenderSelect({ onBack }: { onBack?: () => void }) {
                 whileTap={{ scale: 0.98 }}
                 onPointerEnter={() => setHovered(g)}
                 onClick={() => setGender(g)}
-                className="relative flex flex-col overflow-hidden rounded-xl border border-border shadow-sm"
+                className="relative flex flex-col overflow-hidden rounded-xl border border-border shadow-sm aspect-[3/4] w-full"
                 style={{
                   backgroundColor:
                     g === "male" ? "oklch(0.72 0.06 175)" : "oklch(0.90 0.05 60)",
                 }}
               >
-                <div className="flex-1 w-full overflow-hidden">
+                <div className="flex-1 w-full overflow-hidden min-h-0">
                   <img 
                     src={g === "male" ? "/homem.webp" : "/mulher.webp"} 
                     alt={g === "male" ? "Homem" : "Mulher"}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div
-                  className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-colors ${
+                  className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-colors shrink-0 ${
                     active
                       ? "bg-primary text-primary-foreground"
                       : "bg-background text-foreground"

@@ -43,6 +43,20 @@ const TESTIMONIALS_MALE: Testimonial[] = [
       "O conteúdo de vcs se encaixou perfeitamente com o que eu precisava. Eu sempre gostei de correr mas de 4 anos pra cá eu não conseguia, estava acima do peso e era muito complicado... Foi quando eu conheci o plano personalizado de jejum de vocês, perdi um pouco mais de 10kg... E no final de semana passado voltei a correr, só agradecer!!",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80",
   },
+  {
+    name: "Ricardo Mendes",
+    title: "Resultado surpreendente em poucas semanas",
+    body:
+      "Eu era muito cético com esse tipo de coisa, mas resolvi tentar. Em 3 semanas já tinha perdido 7kg e o melhor: sem passar fome. O plano é muito bem estruturado e fácil de seguir. Minha esposa viu meus resultados e agora está fazendo também!",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Felipe Oliveira",
+    title: "Mudou completamente minha relação com a comida",
+    body:
+      "Sempre tive dificuldade em manter uma dieta, mas com o jejum intermitente do plano tudo ficou mais simples. Perdi 8kg em um mês e ganhei muito mais disposição no dia a dia. O suporte também é excelente, respondem todas as dúvidas rapidamente.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80",
+  },
 ];
 
 interface LoadingScreenProps {
@@ -88,39 +102,32 @@ export function LoadingScreen({ onComplete, onBack, gender }: LoadingScreenProps
   }, [testimonials.length]);
 
   return (
-    <div className="flex flex-1 flex-col gap-5 px-5 py-4 min-h-0 overflow-y-auto no-scrollbar">
-      {onBack && (
-        <button
-          onClick={onBack}
-          className="absolute left-4 top-4 z-30 p-1 text-foreground/80 hover:text-foreground"
-          aria-label="Voltar"
-        >
-          <ArrowLeft className="h-6 w-6" />
-        </button>
-      )}
-      
-      <div className="mt-4">
-        <h2 className="text-[24px] font-extrabold leading-tight text-foreground text-center">
-          Criando o seu Plano Personalizado de Jejum
+    <div className="flex flex-1 flex-col px-5 pt-1 pb-4 w-full min-h-0">
+      <div>
+        <h2 className="text-[25px] font-black leading-tight text-foreground text-center mt-1">
+          Criando o seu Plano Personalizado<br />de Jejum
         </h2>
-        <div className="mt-4 flex items-center justify-between text-[15px] font-semibold text-foreground">
+        
+        <div className="mt-3 flex items-center justify-between text-[15px] font-semibold text-foreground">
           <span className="text-muted-foreground">Preparando...</span>
           <span>{Math.round(progress * 100)}%</span>
         </div>
-        <div className="mt-2">
+        
+        <div className="mt-1.5 w-full">
           <ProgressBar value={progress} />
         </div>
-        <p className="mt-3 text-center text-[13px] text-muted-foreground">
+        
+        <p className="mt-2 text-center text-[13px] text-muted-foreground">
           Estamos preparando o seu plano exclusivo e personalizado..
         </p>
+
+        <div className="mt-4 text-center">
+          <div className="text-[26px] font-black text-foreground tracking-tight">+45 mil pessoas</div>
+          <div className="mt-0.5 text-[13px] text-muted-foreground">nos escolheram, veja o que eles falaram sobre nós...</div>
+        </div>
       </div>
 
-      <div className="mt-2 text-center">
-        <div className="text-[26px] font-extrabold text-foreground">+45 mil pessoas</div>
-        <div className="mt-0.5 text-[13px] text-muted-foreground">nos escolheram, veja o que eles falaram sobre nós...</div>
-      </div>
-
-      <div className="relative min-h-[220px] w-full flex items-center justify-center">
+      <div className="relative min-h-[210px] w-full flex items-center justify-center mt-10">
         {testimonials.map((t, i) => {
           const isActive = i === tIndex;
           return (
@@ -133,21 +140,21 @@ export function LoadingScreen({ onComplete, onBack, gender }: LoadingScreenProps
                 scale: isActive ? 1 : 0.95,
               }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className={`absolute inset-x-0 mx-auto max-w-[380px] rounded-2xl border border-border bg-card p-4 shadow-sm flex flex-col justify-between ${
+              className={`absolute inset-x-0 mx-auto w-full max-w-[380px] rounded-3xl border border-border bg-card p-4 shadow-sm flex flex-col justify-between ${
                 isActive ? "z-10 pointer-events-auto" : "z-0 pointer-events-none"
               }`}
-              style={{ minHeight: "210px" }}
+              style={{ minHeight: "195px" }}
             >
               <div className="flex items-center gap-3">
                 {t.image ? (
                   <img src={t.image} alt={t.name} className="h-9 w-9 rounded-full object-cover border border-border" />
                 ) : (
-                  <div className="grid h-9 w-9 place-items-center rounded-full bg-muted text-sm font-semibold text-foreground">
+                  <div className="grid h-9 w-9 place-items-center rounded-full bg-muted text-xs font-semibold text-foreground">
                     {t.name.charAt(0)}
                   </div>
                 )}
                 <div className="text-left">
-                  <div className="font-semibold text-sm text-foreground">{t.name}</div>
+                  <div className="font-bold text-sm text-foreground">{t.name}</div>
                   <div className="flex text-primary mt-0.5" aria-hidden>
                     {"★★★★★".split("").map((s, k) => (
                       <span key={k} className="text-[10px] text-emerald-500">★</span>
@@ -156,7 +163,7 @@ export function LoadingScreen({ onComplete, onBack, gender }: LoadingScreenProps
                 </div>
               </div>
               <div className="mt-2 text-left text-[14px] font-bold text-foreground leading-snug">{t.title}</div>
-              <p className="mt-1 text-left text-[12px] leading-relaxed text-muted-foreground/90 flex-1">{t.body}</p>
+              <p className="mt-1 text-left text-[12.5px] leading-relaxed text-muted-foreground/90 flex-1">{t.body}</p>
             </motion.div>
           );
         })}
@@ -263,7 +270,7 @@ export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
   const agoraMetaImg = gender === "female" ? "/agora-meta-female.webp" : "/agora-meta.webp";
   const testimonials = gender === "female" ? TESTIMONIALS_FEMALE : TESTIMONIALS_MALE;
   return (
-    <div className="flex-1 overflow-y-auto px-5 pb-16 pt-2 no-scrollbar relative">
+    <div className="flex-1 w-full px-5 pb-16 pt-2 relative">
       <div className="mx-auto flex w-full flex-col gap-6">
         <h2 className="text-center text-[24px] font-extrabold leading-tight text-foreground">
           O seu Plano Personalizado de Jejum está pronto!
@@ -369,10 +376,10 @@ export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
         <OfferCard onCTA={onCTA} gender={gender} />
 
         {/* Guarantee */}
-        <div className="mt-2 flex flex-col items-center gap-3 text-center">
-          <img src="/garantia-30dias.webp" alt="Garantia de 30 dias" className="w-24 h-24 object-contain" />
+        <div className="mt-4 flex flex-col items-center gap-3 text-center">
+          <img src="/garantia-30dias.png" alt="Garantia de 30 dias" className="h-auto object-contain mx-auto" style={{ width: '44%', maxWidth: '208px', minWidth: '128px' }} />
           <div className="text-[20px] font-extrabold text-foreground">Garantia de reembolso</div>
-          <p className="text-[14px] text-muted-foreground whitespace-nowrap">A compra deste material é totalmente sem risco para você.</p>
+          <p className="text-[14px] text-muted-foreground">A compra deste material é totalmente sem risco para você.</p>
           <p className="text-[15px] text-muted-foreground">
             Se ele não atender às suas expectativas nos primeiros 30 dias após a compra, nós reembolsaremos todo o valor
             que você pagou, sem fazer perguntas.
