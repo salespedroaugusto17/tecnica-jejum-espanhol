@@ -12,6 +12,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { captureUtmParams } from "../lib/utm";
 
 declare global {
   interface Window {
@@ -171,6 +172,11 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
   const isInitialLoad = useRef(true);
+
+  useEffect(() => {
+    // Capture UTM params on first load before SPA navigation strips them
+    captureUtmParams();
+  }, []);
 
   useEffect(() => {
     if (isInitialLoad.current) {

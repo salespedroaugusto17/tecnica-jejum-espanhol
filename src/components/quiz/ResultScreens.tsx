@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { CTAButton } from "./CTAButton";
+import { buildCheckoutUrl } from "@/lib/utm";
 import { ProgressBar } from "./ProgressBar";
 
 interface Testimonial {
@@ -228,7 +229,7 @@ function OfferCard({ onCTA, gender }: { onCTA?: () => void; gender?: string }) {
     if (onCTA) {
       onCTA();
     } else {
-      window.location.href = "https://pay.cakto.com.br/3368npu_998861";
+      window.location.href = buildCheckoutUrl("https://pay.cakto.com.br/3368npu_998861");
     }
   };
 

@@ -18,6 +18,7 @@ import {
 import { LoadingScreen, ResultOffer } from "./ResultScreens";
 import { useQuiz } from "@/quiz/QuizContext";
 import { useQuestions } from "@/quiz/useQuestions";
+import { buildCheckoutUrl } from "@/lib/utm";
 import type { AnswerOption, Question } from "@/quiz/types";
 
 /**
@@ -487,7 +488,7 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
         <ResultOffer
           targetWeight={target}
           onCTA={() => {
-            window.location.href = "https://pay.cakto.com.br/3368npu_998861";
+            window.location.href = buildCheckoutUrl("https://pay.cakto.com.br/3368npu_998861");
           }}
           onBack={onBack}
           gender={answers.gender}
