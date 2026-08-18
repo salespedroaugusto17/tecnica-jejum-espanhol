@@ -30,11 +30,11 @@ export function QuestionShell({
               ? "text-[15px] font-semibold text-muted-foreground"
               : "text-[17.5px] font-semibold text-foreground/95"
           }`}>
-            {typeof subtitle === "string" && subtitle.includes("Seca Jejum Turbo") ? (
+            {typeof subtitle === "string" && subtitle.includes("Seca Ayuno Turbo") ? (
               <>
-                {subtitle.split("Seca Jejum Turbo")[0]}
-                <span className="text-primary">Seca Jejum Turbo</span>
-                {subtitle.split("Seca Jejum Turbo")[1]}
+                {subtitle.split("Seca Ayuno Turbo")[0]}
+                <span className="text-primary">Seca Ayuno Turbo</span>
+                {subtitle.split("Seca Ayuno Turbo")[1]}
               </>
             ) : (
               subtitle

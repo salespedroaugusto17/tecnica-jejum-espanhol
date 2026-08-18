@@ -14,24 +14,24 @@ export function IntroLanding({ onStart }: { onStart: () => void }) {
       <div className="flex flex-1 flex-col items-center justify-between px-5 pt-4 pb-6 w-full min-h-[calc(100dvh-70px)]">
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-balance text-center text-[23px] font-black leading-[1.15] tracking-tight text-foreground">
-            Esse <span className="text-primary">Método de Jejum Adaptado</span> está ajudando Homens e Mulheres a{" "}
-            <span className="text-[#b30000]">eliminar até 10kg em 21 dias</span> sem passar fome
+            Este <span className="text-primary">Método de Ayuno Adaptado</span> está ayudando a Hombres y Mujeres a{" "}
+            <span className="text-[#b30000]">eliminar hasta 10kg en 21 días</span> sin pasar hambre
           </h1>
           <p className="text-center text-[15px] font-bold text-foreground">
-            Responda esse teste gratuito de apenas 2 minutos e aprenda 👇
+            Responde esta prueba gratuita de solo 2 minutos y aprende 👇
           </p>
         </div>
 
         <div className="w-full flex items-center justify-center my-3 py-1">
           <img 
             src="/antes-depois.webp" 
-            alt="Antes e Depois" 
+            alt="Antes y Después" 
             className="w-[95%] sm:w-[92%] max-w-[460px] h-auto object-contain mx-auto"
           />
         </div>
 
         <div className="w-full z-10 pb-2 shrink-0">
-          <CTAButton onClick={onStart}>QUERO APRENDER TAMBÉM! 😱</CTAButton>
+          <CTAButton onClick={onStart}>¡QUIERO APRENDER TAMBIÉN! 😱</CTAButton>
         </div>
       </div>
     </AppShell>
@@ -75,7 +75,7 @@ export function GenderSelect({ onBack }: { onBack?: () => void }) {
       <Header showBack={true} onBack={onBack} progress={0.05} />
       <div className="flex flex-1 flex-col items-center justify-center gap-5 px-5 py-6 w-full min-h-[calc(100dvh-70px)]">
         <h1 className="text-center text-[28px] font-black text-foreground tracking-tight">
-          Jejum Intermitente para:
+          Ayuno Intermitente para:
         </h1>
         <div className="grid w-full grid-cols-2 gap-3 my-auto">
           {(["male", "female"] as const).map((g) => {
@@ -95,7 +95,7 @@ export function GenderSelect({ onBack }: { onBack?: () => void }) {
                 <div className="flex-1 w-full overflow-hidden min-h-0">
                   <img 
                     src={g === "male" ? "/homem.webp" : "/mulher.webp"} 
-                    alt={g === "male" ? "Homem" : "Mulher"}
+                    alt={g === "male" ? "Hombre" : "Mujer"}
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
@@ -106,7 +106,7 @@ export function GenderSelect({ onBack }: { onBack?: () => void }) {
                       : "bg-background text-foreground"
                   }`}
                 >
-                  <span>{g === "male" ? "Homem" : "Mulher"}</span>
+                  <span>{g === "male" ? "Hombre" : "Mujer"}</span>
                   <span
                     className={`grid h-6 w-6 place-items-center rounded-full border ${
                       active ? "border-primary-foreground/40" : "border-border-strong"

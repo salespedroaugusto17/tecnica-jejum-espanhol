@@ -111,7 +111,7 @@ export function SliderScreen({ question, initial, onChange }: SliderScreenProps)
           <div className="mt-0.5 h-0 w-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-primary" />
         </motion.div>
       </div>
-      <p className="-mt-2 text-xs text-muted-foreground">Arraste para ajustar</p>
+      <p className="-mt-2 text-xs text-muted-foreground">Arrastra para ajustar</p>
     </div>
   );
 }

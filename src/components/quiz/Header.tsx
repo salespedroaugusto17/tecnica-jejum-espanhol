@@ -14,7 +14,7 @@ export function Header({ progress, onBack, showBack = true, showProgress = true 
       <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
         <button
           type="button"
-          aria-label="Voltar"
+          aria-label="Volver"
           onClick={onBack}
           disabled={!showBack}
           className="grid h-9 w-9 place-items-center rounded-full text-foreground transition-opacity disabled:opacity-0 active:scale-95"
@@ -23,7 +23,7 @@ export function Header({ progress, onBack, showBack = true, showProgress = true 
         </button>
         <div className="flex items-center justify-center gap-1.5">
           <span className="text-xl leading-none" aria-hidden>🔥</span>
-          <span className="text-[15px] font-extrabold tracking-tight text-foreground">SECA JEJUM</span>
+          <span className="text-[15px] font-extrabold tracking-tight text-foreground">SECA AYUNO</span>
         </div>
         <div className="h-9 w-9" />
       </div>

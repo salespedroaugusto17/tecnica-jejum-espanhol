@@ -14,48 +14,48 @@ interface Testimonial {
 
 const TESTIMONIALS_FEMALE: Testimonial[] = [
   {
-    name: "Rogéria Cardoso",
-    title: "Realmente esse Plano é incrível",
+    name: "María García",
+    title: "Realmente este Plan es increíble",
     body:
-      "Fiquei realmente surpresa com esse plano, não imaginei que iria fazer tanta diferença! Finalmente consegui sair dos 68kg e voltar para os meus 60kg. Eu sempre gostei de fazer jejum, mas eu não sabia nem da metade das estratégias que vcs passam... O planejamento das refeições me ajudou demais, gratidão!!",
+      "Quedé realmente sorprendida con este plan, ¡no imaginé que haría tanta diferencia! Finalmente logré bajar de los 68kg y volver a mis 60kg. Siempre me gustó hacer ayuno, pero no sabía ni la mitad de las estrategias que ustedes enseñan... ¡La planificación de las comidas me ayudó muchísimo, gracias!!",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80",
   },
   {
-    name: "Gleide Almeida",
-    title: "Extremamente satisfeita",
+    name: "Carolina López",
+    title: "Extremadamente satisfecha",
     body:
-      "Fiquei muito feliz com o conteúdo. Depois de consumir todo o material e começar a fazer o jejum, finalmente consegui o que eu queria... Eu sempre fui aquelas pessoas que emagrecem mas logo dps engordava dnv, e graças ao plano personalizado de vocês isso mudou. Já estou a 6 meses com o mesmo peso, nunca consegui isso na minha vida!! obrigada.",
+      "Quedé muy feliz con el contenido. Después de consumir todo el material y empezar a hacer el ayuno, finalmente logré lo que quería... Siempre fui de esas personas que adelgazan pero después vuelven a engordar, y gracias al plan personalizado de ustedes eso cambió. ¡Ya llevo 6 meses con el mismo peso, nunca lo había logrado en mi vida!! gracias.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&q=80",
   },
   {
-    name: "Cláudia Santos",
-    title: "Perder peso era muito difícil, agora eu estou conseguindo sem esforço!",
+    name: "Ana Martínez",
+    title: "Perder peso era muy difícil, ¡ahora lo estoy logrando sin esfuerzo!",
     body:
-      "Estou muito feliz com os resultados do Plano personalizado! Desde que comecei a seguir as orientações, notei uma grande diferença no espelho... to muito menos inchada e to com menos 5kg na balança. Mas isso nem foi o melhor, o que mais mudou foi a minha energia, antes eu já acordava cansada sabe? agora pareço ter 20 anos novamente kkkk, obrigada!!",
+      "¡Estoy muy feliz con los resultados del Plan personalizado! Desde que empecé a seguir las indicaciones, noté una gran diferencia en el espejo... estoy mucho menos hinchada y con 5kg menos en la balanza. Pero eso ni fue lo mejor, lo que más cambió fue mi energía, antes ya me despertaba cansada ¿saben? ahora parezco tener 20 años nuevamente jaja, ¡¡gracias!!",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
   },
 ];
 
 const TESTIMONIALS_MALE: Testimonial[] = [
   {
-    name: "Sérgio Augusto",
-    title: "Nunca tinha visto nenhum conteúdo parecido!",
+    name: "Carlos Rodríguez",
+    title: "¡Nunca había visto un contenido parecido!",
     body:
-      "O conteúdo de vcs se encaixou perfeitamente com o que eu precisava. Eu sempre gostei de correr mas de 4 anos pra cá eu não conseguia, estava acima do peso e era muito complicado... Foi quando eu conheci o plano personalizado de jejum de vocês, perdi um pouco mais de 10kg... E no final de semana passado voltei a correr, só agradecer!!",
+      "El contenido de ustedes encajó perfectamente con lo que yo necesitaba. Siempre me gustó correr pero de 4 años para acá no podía, estaba con sobrepeso y era muy complicado... Fue cuando conocí el plan personalizado de ayuno de ustedes, perdí un poco más de 10kg... ¡Y el fin de semana pasado volví a correr, solo agradecer!!",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80",
   },
   {
-    name: "Ricardo Mendes",
-    title: "Resultado surpreendente em poucas semanas",
+    name: "Ricardo Torres",
+    title: "Resultado sorprendente en pocas semanas",
     body:
-      "Eu era muito cético com esse tipo de coisa, mas resolvi tentar. Em 3 semanas já tinha perdido 7kg e o melhor: sem passar fome. O plano é muito bem estruturado e fácil de seguir. Minha esposa viu meus resultados e agora está fazendo também!",
+      "Yo era muy escéptico con este tipo de cosas, pero decidí intentar. En 3 semanas ya había perdido 7kg y lo mejor: sin pasar hambre. El plan es muy bien estructurado y fácil de seguir. ¡Mi esposa vio mis resultados y ahora también lo está haciendo!",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
   },
   {
-    name: "Felipe Oliveira",
-    title: "Mudou completamente minha relação com a comida",
+    name: "Diego Herrera",
+    title: "Cambió completamente mi relación con la comida",
     body:
-      "Sempre tive dificuldade em manter uma dieta, mas com o jejum intermitente do plano tudo ficou mais simples. Perdi 8kg em um mês e ganhei muito mais disposição no dia a dia. O suporte também é excelente, respondem todas as dúvidas rapidamente.",
+      "Siempre tuve dificultad para mantener una dieta, pero con el ayuno intermitente del plan todo se hizo más simple. Perdí 8kg en un mes y gané mucha más energía en el día a día. El soporte también es excelente, responden todas las dudas rápidamente.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80",
   },
 ];
@@ -106,7 +106,7 @@ export function LoadingScreen({ onComplete, onBack, gender }: LoadingScreenProps
     <div className="flex flex-1 flex-col px-5 pt-1 pb-4 w-full min-h-0">
       <div>
         <h2 className="text-[25px] font-black leading-tight text-foreground text-center mt-1">
-          Criando o seu Plano Personalizado<br />de Jejum
+          Creando tu Plan Personalizado<br />de Ayuno
         </h2>
         
         <div className="mt-3 flex items-center justify-between text-[15px] font-semibold text-foreground">
@@ -119,12 +119,12 @@ export function LoadingScreen({ onComplete, onBack, gender }: LoadingScreenProps
         </div>
         
         <p className="mt-2 text-center text-[13px] text-muted-foreground">
-          Estamos preparando o seu plano exclusivo e personalizado..
+          Estamos preparando tu plan exclusivo y personalizado..
         </p>
 
         <div className="mt-4 text-center">
-          <div className="text-[26px] font-black text-foreground tracking-tight">+45 mil pessoas</div>
-          <div className="mt-0.5 text-[13px] text-muted-foreground">nos escolheram, veja o que eles falaram sobre nós...</div>
+          <div className="text-[26px] font-black text-foreground tracking-tight">+45 mil personas</div>
+          <div className="mt-0.5 text-[13px] text-muted-foreground">nos eligieron, mira lo que dijeron sobre nosotros...</div>
         </div>
       </div>
 
@@ -181,14 +181,14 @@ interface PlanIncludeItem {
   body: string;
 }
 const PLAN_ITEMS: PlanIncludeItem[] = [
-  { emoji: "🍽️", title: "Como fazer o Jejum do Jeito Certo", body: "Baseado nas pesquisas mais recentes de universidades famosas como Havard, desenvolvemos o Protocolo Seca Jejum, a forma mais eficaz e segura de fazer o Jejum intermitente para perder peso sem que você perca músculos ou sinta muita fome." },
-  { emoji: "🔥", title: "Potencialize a Queima de Gordura", body: "Saiba exatamente o que comer para acelerar a queima de gordura e te manter com saciedade por mais tempo." },
-  { emoji: "🪞", title: "Como Parecer outra Pessoa na Frente do Espelho em 7 Dias", body: "Aprenda o jeito mais fácil de desinchar e ver grandes resultados no espelho em menos de 7 dias." },
-  { emoji: "🎹", title: "Protocolo Anti-Efeito Sanfona", body: "Descubra como manter o peso perdido e nunca mais voltar a engordar, mesmo depois de atingir seu objetivo." },
-  { emoji: "⚡", title: "Como acelerar o seu metabolismo e perder peso sem fazer nada", body: "Aprenda as principais estratégias para acelerar o seu metabolismo e queimar gordura mesmo que você não faça nada." },
-  { emoji: "🎯", title: "Definição de metas diárias", body: "Como definir metas diárias para você se manter no caminho certo" },
-  { emoji: "⏳", title: "Protocolo Anti-procrastinação", body: "Descubra o segredo dos maiores líderes para se manter sempre motivado" },
-  { emoji: "📝", title: "Planilha de acompanhamento", body: "Saiba exatamente quanto você está evoluindo" },
+  { emoji: "🍽️", title: "Cómo hacer el Ayuno de la Forma Correcta", body: "Basado en las investigaciones más recientes de universidades famosas como Harvard, desarrollamos el Protocolo Seca Ayuno, la forma más eficaz y segura de hacer el Ayuno intermitente para perder peso sin que pierdas músculo ni sientas mucha hambre." },
+  { emoji: "🔥", title: "Potencia la Quema de Grasa", body: "Descubre exactamente qué comer para acelerar la quema de grasa y mantenerte con saciedad por más tiempo." },
+  { emoji: "🪞", title: "Cómo Parecer otra Persona Frente al Espejo en 7 Días", body: "Aprende la forma más fácil de deshincharte y ver grandes resultados en el espejo en menos de 7 días." },
+  { emoji: "🎹", title: "Protocolo Anti-Efecto Rebote", body: "Descubre cómo mantener el peso perdido y nunca más volver a engordar, incluso después de alcanzar tu objetivo." },
+  { emoji: "⚡", title: "Cómo acelerar tu metabolismo y perder peso sin hacer nada", body: "Aprende las principales estrategias para acelerar tu metabolismo y quemar grasa aunque no hagas nada." },
+  { emoji: "🎯", title: "Definición de metas diarias", body: "Cómo definir metas diarias para que te mantengas en el camino correcto" },
+  { emoji: "⏳", title: "Protocolo Anti-procrastinación", body: "Descubre el secreto de los más grandes líderes para mantenerse siempre motivado" },
+  { emoji: "📝", title: "Planilla de seguimiento", body: "Sabe exactamente cuánto estás evolucionando" },
 ];
 
 interface OfferProps {
@@ -237,30 +237,30 @@ function OfferCard({ onCTA, gender }: { onCTA?: () => void; gender?: string }) {
     <div className="flex flex-col gap-3">
       <div className="overflow-hidden rounded-2xl border-2 border-primary">
         <div className="bg-primary py-2.5 text-center text-sm font-semibold text-primary-foreground">
-          De R$ 197,90 por apenas 👇
+          De US$ 39,90 por solo 👇
         </div>
         <div className="flex items-center justify-between gap-4 bg-background p-5">
           <div className="text-[17px] font-bold leading-tight text-foreground">
-            Plano de Jejum
+            Plan de Ayuno
             <br />Personalizado
           </div>
           <div className="rounded-lg bg-muted px-4 py-3 text-right">
             <div className="text-[11px] font-medium text-muted-foreground">6x de</div>
             <div className="text-xl font-extrabold text-foreground">
-              R$<span className="text-3xl font-black">{parcelado}</span>
+              US$<span className="text-3xl font-black">{parcelado}</span>
             </div>
-            <div className="text-[11px] font-medium text-muted-foreground">Ou R${aVista} à vista</div>
+            <div className="text-[11px] font-medium text-muted-foreground">O US${aVista} al contado</div>
           </div>
         </div>
       </div>
       <CountdownTimer />
       <CTAButton onClick={handleCTA} className="uppercase tracking-wide">
-        Receber o meu plano
+        Recibir mi plan
       </CTAButton>
       <div className="flex items-center justify-around text-[11px] font-medium text-foreground">
         <div className="flex items-center gap-1"><span aria-hidden>✅</span><span>Compra<br /><b>SEGURA</b></span></div>
-        <div className="flex items-center gap-1"><span aria-hidden>🏅</span><span>Satisfação<br /><b>GARANTIDA</b></span></div>
-        <div className="flex items-center gap-1"><span aria-hidden>🔒</span><span>Privacidade<br /><b>PROTEGIDA</b></span></div>
+        <div className="flex items-center gap-1"><span aria-hidden>🏅</span><span>Satisfacción<br /><b>GARANTIZADA</b></span></div>
+        <div className="flex items-center gap-1"><span aria-hidden>🔒</span><span>Privacidad<br /><b>PROTEGIDA</b></span></div>
       </div>
     </div>
   );
@@ -274,54 +274,54 @@ export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
     <div className="flex-1 w-full px-5 pb-16 pt-2 relative">
       <div className="mx-auto flex w-full flex-col gap-6">
         <h2 className="text-center text-[24px] font-extrabold leading-tight text-foreground">
-          O seu Plano Personalizado de Jejum está pronto!
+          ¡Tu Plan Personalizado de Ayuno está listo!
         </h2>
 
-        {/* Antes/Depois */}
+        {/* Antes/Después */}
         <div className="overflow-hidden rounded-2xl border border-border">
           {gender !== "female" && (
             <div className="grid grid-cols-2 divide-x divide-border bg-[#F5F2EB] text-center text-sm font-bold text-foreground">
-              <div className="py-2">Agora</div>
+              <div className="py-2">Ahora</div>
               <div className="py-2">Meta</div>
             </div>
           )}
           <div className="bg-[#EFECE3] p-1.5 flex justify-center">
             <img 
               src={agoraMetaImg} 
-              alt="Antes e Depois" 
+              alt="Antes y Después" 
               className="w-full h-auto object-contain rounded-xl"
             />
           </div>
         </div>
 
-        {/* Rótulos de tempo */}
+        {/* Rótulos de tiempo */}
         <div className="grid grid-cols-2 text-center -mt-2">
-          <div className="text-[27px] font-extrabold text-foreground text-left pl-2">Hoje</div>
-          <div className="text-[27px] font-extrabold text-foreground text-left pl-6">Em 21 dias</div>
+          <div className="text-[27px] font-extrabold text-foreground text-left pl-2">Hoy</div>
+          <div className="text-[27px] font-extrabold text-foreground text-left pl-6">En 21 días</div>
         </div>
 
         {/* Metrics compare */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-          <MetricSlider label="Seu Nível de gordura" value="Alto" pct={0.8} color="red" />
-          <MetricSlider label="Seu Nível de gordura" value="Baixo" pct={0.15} color="green" />
+          <MetricSlider label="Tu Nivel de grasa" value="Alto" pct={0.8} color="red" />
+          <MetricSlider label="Tu Nivel de grasa" value="Bajo" pct={0.15} color="green" />
 
-          <MetricSlider label="Seu Nível de energia" value="Baixo" pct={0.2} color="red" />
-          <MetricSlider label="Seu Nível de energia" value="Alto" pct={0.85} color="green" />
+          <MetricSlider label="Tu Nivel de energía" value="Bajo" pct={0.2} color="red" />
+          <MetricSlider label="Tu Nivel de energía" value="Alto" pct={0.85} color="green" />
 
-          <MetricSlider label="Seu Metabolismo" value="Baixo" pct={0.2} color="red" />
-          <MetricSlider label="Seu Metabolismo" value="Alto" pct={0.85} color="green" />
+          <MetricSlider label="Tu Metabolismo" value="Bajo" pct={0.2} color="red" />
+          <MetricSlider label="Tu Metabolismo" value="Alto" pct={0.85} color="green" />
         </div>
 
         <div className="rounded-2xl bg-[#D0F8D9] p-5 text-center border border-[#BCE8C5]">
-          <div className="text-[24px] font-black text-[#155A27]">Como funciona o Plano?</div>
+          <div className="text-[24px] font-black text-[#155A27]">¿Cómo funciona el Plan?</div>
           <p className="mt-2 text-[15px] leading-relaxed text-[#1B4D27] font-medium">
-            Com base nas suas informações pessoais e objetivos, criamos um plano de jejum 100% personalizado para você.
-            Nossa abordagem estratégica foi feita para que você consiga potencializar sua perda de peso em 21 dias,
-            respeitando seu estilo de vida, sua rotina e o que você gosta de comer.
+            Basándonos en tu información personal y objetivos, creamos un plan de ayuno 100% personalizado para ti.
+            Nuestro enfoque estratégico fue diseñado para que puedas potenciar tu pérdida de peso en 21 días,
+            respetando tu estilo de vida, tu rutina y lo que te gusta comer.
           </p>
         </div>
 
-        <h3 className="mt-2 text-center text-[26px] font-extrabold text-foreground">Seu plano inclui:</h3>
+        <h3 className="mt-2 text-center text-[26px] font-extrabold text-foreground">Tu plan incluye:</h3>
 
         <div className="flex flex-col gap-4">
           {PLAN_ITEMS.map((it) => (
@@ -337,14 +337,14 @@ export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
 
         {/* Before/after photos */}
         <div>
-          <h3 className="mb-4 text-center text-[22px] font-extrabold text-foreground">Veja mudanças visíveis após uma semana</h3>
+          <h3 className="mb-4 text-center text-[22px] font-extrabold text-foreground">Mira los cambios visibles después de una semana</h3>
           <div className="flex flex-col gap-3">
             {(gender === "female"
               ? ["/transform-female-1.webp", "/transform-female-2.webp", "/transform-female-3.webp", "/transform-female-4.webp", "/transform-female-5.webp"]
               : ["/transform-1.webp", "/transform-2.webp", "/transform-3.webp", "/transform-4.webp"]
             ).map((src, i) => (
               <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-sm">
-                <img src={src} alt={`Transformação ${i + 1}`} className="w-full h-auto object-cover" />
+                <img src={src} alt={`Transformación ${i + 1}`} className="w-full h-auto object-cover" />
               </div>
             ))}
           </div>
@@ -352,7 +352,7 @@ export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
 
         {/* Testimonials */}
         <div>
-          <h3 className="mb-3 text-center text-[20px] font-extrabold text-foreground">Veja as histórias de sucesso dos nossos alunos</h3>
+          <h3 className="mb-3 text-center text-[20px] font-extrabold text-foreground">Mira las historias de éxito de nuestros alumnos</h3>
           <div className="flex flex-col gap-4">
             {testimonials.map((t) => (
               <div key={t.name} className="rounded-2xl border border-border bg-card p-4 shadow-sm">
@@ -378,12 +378,12 @@ export function ResultOffer({ targetWeight, onCTA, gender }: OfferProps) {
 
         {/* Guarantee */}
         <div className="mt-4 flex flex-col items-center gap-3 text-center">
-          <img src="/garantia-30dias.png" alt="Garantia de 30 dias" className="h-auto object-contain mx-auto" style={{ width: '44%', maxWidth: '208px', minWidth: '128px' }} />
-          <div className="text-[20px] font-extrabold text-foreground">Garantia de reembolso</div>
-          <p className="text-[14px] text-muted-foreground">A compra deste material é totalmente sem risco para você.</p>
+          <img src="/garantia-30dias.png" alt="Garantía de 30 días" className="h-auto object-contain mx-auto" style={{ width: '44%', maxWidth: '208px', minWidth: '128px' }} />
+          <div className="text-[20px] font-extrabold text-foreground">Garantía de reembolso</div>
+          <p className="text-[14px] text-muted-foreground">La compra de este material es totalmente sin riesgo para ti.</p>
           <p className="text-[15px] text-muted-foreground">
-            Se ele não atender às suas expectativas nos primeiros 30 dias após a compra, nós reembolsaremos todo o valor
-            que você pagou, sem fazer perguntas.
+            Si no cumple con tus expectativas en los primeros 30 días después de la compra, te reembolsaremos todo el valor
+            que pagaste, sin hacer preguntas.
           </p>
         </div>
       </div>

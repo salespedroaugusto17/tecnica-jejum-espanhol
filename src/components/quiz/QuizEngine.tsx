@@ -101,7 +101,7 @@ export function QuizEngine() {
 function EndPlaceholder() {
   return (
     <div className="flex flex-1 items-center justify-center p-10 text-center text-sm text-muted-foreground">
-      Fim do fluxo.
+      Fin del flujo.
     </div>
   );
 }
@@ -402,11 +402,11 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
       const pct = Math.min(100, Math.max(5, Math.round(((bmi - 15) / 25) * 100)));
       
       // Force label to "Normal - entre 18,4 e 25" just like the 83% screenshot
-      const level = "Normal - entre 18,4 e 25";
+      const level = "Normal - entre 18,4 y 25";
       const summaryImage = answers.gender === "female" ? "/summary-female.webp" : "/summary-man.webp";
       return (
         <QuestionShell
-          title="Resumo do seu nível de condicionamento físico"
+          title="Resumen de tu nivel de acondicionamiento físico"
           centered={false}
           footer={<CTAButton onClick={onNext}>Continuar</CTAButton>}
         >
@@ -420,10 +420,10 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
               />
             </div>
             <div className="rounded-2xl bg-[oklch(0.96_0.05_75)] px-4 py-2.5 text-[oklch(0.45_0.15_75)] shadow-sm">
-              <div className="font-black text-[15px]">Sua situação é preocupante!</div>
+              <div className="font-black text-[15px]">¡Tu situación es preocupante!</div>
               <p className="mt-1 text-[13.5px] font-medium leading-snug">
-                Parabéns por dar o primeiro passo. Vamos criar um plano personalizado para acelerar seu metabolismo,
-                aumentar sua força e melhorar sua saúde.
+                Felicidades por dar el primer paso. Vamos a crear un plan personalizado para acelerar tu metabolismo,
+                aumentar tu fuerza y mejorar tu salud.
               </p>
             </div>
           </div>
@@ -435,14 +435,14 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
       const w = weightAns?.value ?? 80;
       return (
         <QuestionShell
-          title="O único plano que você precisa para entrar em forma"
+          title="El único plan que necesitas para ponerte en forma"
           subtitle={
             <div className="flex flex-col items-center text-center mt-2 leading-snug">
               <span className="text-[16px] font-medium text-foreground/80">
-                De acordo com as informações que você nos forneceu, você pode atingir o seu peso ideal:
+                Según la información que nos proporcionaste, puedes alcanzar tu peso ideal:
               </span>
               <span className="mt-2 text-[18px] font-black text-foreground underline decoration-[2.5px] underline-offset-4">
-                -10 kg em 21 dias
+                -10 kg en 21 días
               </span>
             </div>
           }
@@ -459,14 +459,14 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
       const w = weightAns?.value ?? 80;
       return (
         <QuestionShell
-          title="O seu Plano Personalizado de Jejum está pronto!"
+          title="¡Tu Plan Personalizado de Ayuno está listo!"
           subtitle={
             <div className="flex flex-col items-center text-center mt-2 leading-snug">
               <span className="text-[16px] font-medium text-foreground/80">
-                De acordo com as informações que você nos forneceu, você pode atingir o seu peso ideal:
+                Según la información que nos proporcionaste, puedes alcanzar tu peso ideal:
               </span>
               <span className="mt-2 text-[18px] font-black text-foreground">
-                Você perderá 10kg em 21 dias
+                Perderás 10kg en 21 días
               </span>
             </div>
           }

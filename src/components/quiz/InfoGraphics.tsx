@@ -14,7 +14,7 @@ export function EnergyChart(_: EnergyChartProps) {
     >
       <img
         src="/energy-chart.webp"
-        alt="Gráfico de Calorias Vazias vs Energia — Hoje vs Depois"
+        alt="Gráfico de Calorías Vacías vs Energía — Hoy vs Después"
         className="w-full h-auto object-contain mx-auto"
       />
     </motion.div>
@@ -50,7 +50,7 @@ export function FaceTransform({ gender }: { gender?: string }) {
     >
       <img
         src={imageSrc}
-        alt="Transformação do Rosto pelo Jejum"
+        alt="Transformación del Rostro por el Ayuno"
         className="w-full h-auto rounded-2xl object-contain mx-auto"
       />
     </motion.div>
@@ -69,7 +69,7 @@ export function TrioMen({ gender }: { gender?: string }) {
     >
       <img 
         src={imageSrc} 
-        alt="Milhares de pessoas já escolheram" 
+        alt="Miles de personas ya eligieron" 
         className="w-full h-auto object-contain drop-shadow-sm mx-auto"
       />
     </motion.div>
@@ -80,7 +80,7 @@ export function TrioMen({ gender }: { gender?: string }) {
 export function BmiGauge({ percent = 83, label = "Normal - entre 18,4 e 25", large = false }: { percent?: number; label?: string; large?: boolean }) {
   // Forçar sempre a mostrar 83%
   const displayPercent = 83;
-  const displayLabel = "Normal - entre 18,4 e 25";
+  const displayLabel = "Normal - entre 18,4 y 25";
   
   const titleClass = large ? "font-semibold text-foreground text-lg" : "font-semibold text-foreground text-base";
   const pctClass = large ? "font-bold text-foreground text-xl" : "font-bold text-foreground text-base";
@@ -93,7 +93,7 @@ export function BmiGauge({ percent = 83, label = "Normal - entre 18,4 e 25", lar
   return (
     <div className="w-full">
       <div className="flex items-center justify-between">
-        <div className={titleClass}>Índice de massa corporal (IMC)</div>
+        <div className={titleClass}>Índice de Masa Corporal (IMC)</div>
         <div className={pctClass}>{displayPercent}%</div>
       </div>
       <div className={labelClass}>{displayLabel}</div>
@@ -179,14 +179,14 @@ export function WeightLossChart({ currentWeight, targetWeight, days = 21 }: { cu
           ))}
         </svg>
         <div className="absolute left-2 -top-4 rounded-md border border-border bg-background px-2.5 py-0.5 text-xs font-semibold shadow-sm text-foreground/80">
-          Você
+          Tú
         </div>
         <div className="absolute right-4 top-[70%] -translate-y-1/2 rounded-lg bg-[#10B981] px-3 py-1 text-sm font-extrabold text-white shadow-sm">
           {displayTargetWeight}kg
         </div>
       </div>
       <div className="mt-2 flex justify-between text-xs font-semibold text-muted-foreground/80">
-        <span>Hoje</span>
+        <span>Hoy</span>
         <span>{days}d</span>
       </div>
     </div>

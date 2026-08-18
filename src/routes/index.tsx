@@ -11,12 +11,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Método de Jejum Adaptado que está ajudando homens e mulheres a eliminar até 10kg em 21 dias sem passar fome. Faça o teste gratuito de 2 minutos.",
+          "Método de Ayuno Adaptado que está ayudando a hombres y mujeres a eliminar hasta 10kg en 21 días sin pasar hambre. Haz la prueba gratuita de 2 minutos.",
       },
-      { property: "og:title", content: "Seca Jejum — Descubra seu Protocolo de Jejum Personalizado" },
+      { property: "og:title", content: "Seca Ayuno — Descubre tu Protocolo de Ayuno Personalizado" },
       {
         property: "og:description",
-        content: "Método de Jejum Adaptado que está ajudando homens e mulheres a eliminar até 10kg em 21 dias sem passar fome. Faça o teste gratuito de 2 minutos.",
+        content: "Método de Ayuno Adaptado que está ayudando a hombres y mujeres a eliminar hasta 10kg en 21 días sin pasar hambre. Haz la prueba gratuita de 2 minutos.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
