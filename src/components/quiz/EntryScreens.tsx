@@ -23,9 +23,9 @@ export function IntroLanding({ onStart }: { onStart: () => void }) {
         </div>
 
         <div className="w-full flex items-center justify-center my-3 py-1">
-          <img 
-            src="/antes-depois.webp" 
-            alt="Antes y Después" 
+          <img
+            src="/antes-depois.webp"
+            alt="Antes y Después"
             className="w-[95%] sm:w-[92%] max-w-[460px] h-auto object-contain mx-auto"
           />
         </div>
@@ -93,24 +93,22 @@ export function GenderSelect({ onBack }: { onBack?: () => void }) {
                 }}
               >
                 <div className="flex-1 w-full overflow-hidden min-h-0">
-                  <img 
-                    src={g === "male" ? "/homem.webp" : "/mulher.webp"} 
+                  <img
+                    src={g === "male" ? "/homem.webp" : "/mulher.webp"}
                     alt={g === "male" ? "Hombre" : "Mujer"}
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div
-                  className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-colors shrink-0 ${
-                    active
+                  className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-colors shrink-0 ${active
                       ? "bg-primary text-primary-foreground"
                       : "bg-background text-foreground"
-                  }`}
+                    }`}
                 >
                   <span>{g === "male" ? "Hombre" : "Mujer"}</span>
                   <span
-                    className={`grid h-6 w-6 place-items-center rounded-full border ${
-                      active ? "border-primary-foreground/40" : "border-border-strong"
-                    }`}
+                    className={`grid h-6 w-6 place-items-center rounded-full border ${active ? "border-primary-foreground/40" : "border-border-strong"
+                      }`}
                   >
                     <ChevronRight className="h-3.5 w-3.5" />
                   </span>
