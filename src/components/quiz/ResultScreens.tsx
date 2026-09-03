@@ -222,8 +222,8 @@ function CountdownTimer() {
 }
 
 function OfferCard({ onCTA, gender }: { onCTA?: () => void; gender?: string }) {
-  const parcelado = "5,72";
-  const aVista = "29,00";
+  const parcelado = "2,48";
+  const aVista = "14,90";
 
   const handleCTA = () => {
     if (onCTA) {
