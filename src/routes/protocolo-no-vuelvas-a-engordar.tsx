@@ -258,31 +258,8 @@ function ProtocoloUpsellPage() {
               Pago único • Sin cobros recurrentes • Acceso de por vida
             </p>
 
-            {/* HOTMART - Sales Funnel Widget */}
-            <div id="hotmart-sales-funnel" className="my-3"></div>
-
-            {/* 6. BOTÓN PRINCIPAL */}
-            <div className="mt-4">
-              <a
-                href={checkoutHref}
-                id="cta-upsell-accept"
-                className="group relative flex items-center justify-center gap-2 w-full bg-gradient-to-r from-amber-400 via-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-base sm:text-lg py-4 px-5 rounded-xl shadow-[0_6px_20px_-3px_rgba(251,191,36,0.6)] transform hover:scale-[1.01] active:scale-[0.99] transition-all"
-              >
-                <span>Sí, quiero proteger mis resultados</span>
-                <ArrowRight className="w-5 h-5 text-slate-950 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-
-            {/* 7. RECUSA ABAJO DEL BOTÓN */}
-            <div className="mt-3.5">
-              <a
-                href={declineHref}
-                id="cta-upsell-decline"
-                className="inline-block text-xs text-slate-400 hover:text-slate-200 hover:underline transition-colors py-1 px-2 font-normal"
-              >
-                No gracias, prefiero arriesgarme a recuperar el peso
-              </a>
-            </div>
+            {/* HOTMART - Sales Funnel Widget Oficial (Área única de decisión) */}
+            <div id="hotmart-sales-funnel" className="my-4 min-h-[60px] flex flex-col items-center justify-center"></div>
           </div>
 
           {/* 9. SELOS / TEXTOS DE SEGURIDAD */}
