@@ -221,17 +221,14 @@ function CountdownTimer() {
   );
 }
 
-function OfferCard({ onCTA, gender }: { onCTA?: () => void; gender?: string }) {
+function OfferCard({ gender }: { onCTA?: () => void; gender?: string }) {
   const parcelado = "2,48";
   const aVista = "14,90";
+  const [checkoutUrl, setCheckoutUrl] = useState("https://pay.hotmart.com/O107345596O?off=r99n5isz&checkoutMode=10");
 
-  const handleCTA = () => {
-    if (onCTA) {
-      onCTA();
-    } else {
-      window.location.href = buildCheckoutUrl("https://pay.cakto.com.br/3368npu_998861");
-    }
-  };
+  useEffect(() => {
+    setCheckoutUrl(buildCheckoutUrl("https://pay.hotmart.com/O107345596O?off=r99n5isz&checkoutMode=10"));
+  }, []);
 
   return (
     <div className="flex flex-col gap-3">
@@ -254,9 +251,13 @@ function OfferCard({ onCTA, gender }: { onCTA?: () => void; gender?: string }) {
         </div>
       </div>
       <CountdownTimer />
-      <CTAButton onClick={handleCTA} className="uppercase tracking-wide">
+      <a
+        href={checkoutUrl}
+        id="cta-recibir-mi-plan"
+        className="cta-primary inline-flex h-[56px] items-center justify-center px-8 text-lg font-bold w-full uppercase tracking-wide cursor-pointer !no-underline text-center shadow-[var(--shadow-cta)] active:scale-[0.98] transition-all"
+      >
         Recibir mi plan
-      </CTAButton>
+      </a>
       <div className="flex items-center justify-around text-[11px] font-medium text-foreground">
         <div className="flex items-center gap-1"><span aria-hidden>✅</span><span>Compra<br /><b>SEGURA</b></span></div>
         <div className="flex items-center gap-1"><span aria-hidden>🏅</span><span>Satisfacción<br /><b>GARANTIZADA</b></span></div>

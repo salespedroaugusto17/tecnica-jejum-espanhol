@@ -237,7 +237,7 @@ function ProtocoloDownsellPage() {
             </p>
 
             {/* 6. BOTÓN PRINCIPAL */}
-            <div className="mt-5">
+            <div className="mt-4">
               <a
                 href={checkoutHref}
                 id="cta-downsell-accept"

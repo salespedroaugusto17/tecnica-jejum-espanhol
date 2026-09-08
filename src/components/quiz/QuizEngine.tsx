@@ -488,7 +488,7 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
         <ResultOffer
           targetWeight={target}
           onCTA={() => {
-            window.location.href = buildCheckoutUrl("https://pay.cakto.com.br/3368npu_998861");
+            window.location.href = buildCheckoutUrl("https://pay.hotmart.com/O107345596O?off=r99n5isz&checkoutMode=10");
           }}
           onBack={onBack}
           gender={answers.gender}

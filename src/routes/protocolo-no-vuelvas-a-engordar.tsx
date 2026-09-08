@@ -63,6 +63,30 @@ function ProtocoloUpsellPage() {
     // Preserva parámetros UTM automáticamente
     setCheckoutHref(buildCheckoutUrl(UPSELL_CHECKOUT_URL));
     setDeclineHref(buildCheckoutUrl(DECLINE_URL));
+
+    // Carga e inicializa el widget de Hotmart Sales Funnel
+    const initHotmart = () => {
+      const win = typeof window !== "undefined" ? (window as any) : null;
+      if (win && win.checkoutElements) {
+        try {
+          win.checkoutElements.init("salesFunnel").mount("#hotmart-sales-funnel");
+        } catch (e) {
+          console.warn("Hotmart salesFunnel init:", e);
+        }
+      }
+    };
+
+    const SCRIPT_ID = "hotmart-checkout-elements-script";
+    if (!document.getElementById(SCRIPT_ID)) {
+      const script = document.createElement("script");
+      script.id = SCRIPT_ID;
+      script.src = "https://checkout.hotmart.com/lib/hotmart-checkout-elements.js";
+      script.async = true;
+      script.onload = () => initHotmart();
+      document.body.appendChild(script);
+    } else {
+      initHotmart();
+    }
   }, []);
 
   const valueItems = [
@@ -234,8 +258,11 @@ function ProtocoloUpsellPage() {
               Pago único • Sin cobros recurrentes • Acceso de por vida
             </p>
 
+            {/* HOTMART - Sales Funnel Widget */}
+            <div id="hotmart-sales-funnel" className="my-3"></div>
+
             {/* 6. BOTÓN PRINCIPAL */}
-            <div className="mt-5">
+            <div className="mt-4">
               <a
                 href={checkoutHref}
                 id="cta-upsell-accept"
