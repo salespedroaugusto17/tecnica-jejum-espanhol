@@ -21,7 +21,7 @@ declare global {
   }
 }
 
-const META_PIXEL_ID = "2627230911066975";
+const META_PIXEL_ID = "2139943999936596";
 
 function NotFoundComponent() {
   return (

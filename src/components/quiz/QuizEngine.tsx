@@ -488,6 +488,9 @@ function SpecialRenderer({ question, onNext, onBack }: { question: Question; onN
         <ResultOffer
           targetWeight={target}
           onCTA={() => {
+            if (typeof window !== "undefined" && window.fbq) {
+              window.fbq("track", "InitiateCheckout");
+            }
             window.location.href = buildCheckoutUrl("https://pay.hotmart.com/O107345596O?off=r99n5isz&checkoutMode=10");
           }}
           onBack={onBack}

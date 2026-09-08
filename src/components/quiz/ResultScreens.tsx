@@ -254,6 +254,11 @@ function OfferCard({ gender }: { onCTA?: () => void; gender?: string }) {
       <a
         href={checkoutUrl}
         id="cta-recibir-mi-plan"
+        onClick={() => {
+          if (typeof window !== "undefined" && window.fbq) {
+            window.fbq("track", "InitiateCheckout");
+          }
+        }}
         className="cta-primary inline-flex h-[56px] items-center justify-center px-8 text-lg font-bold w-full uppercase tracking-wide cursor-pointer !no-underline text-center shadow-[var(--shadow-cta)] active:scale-[0.98] transition-all"
       >
         Recibir mi plan
