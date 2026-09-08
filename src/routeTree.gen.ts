@@ -9,8 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProtocoloNoVuelvasAEngordarRouteImport } from './routes/protocolo-no-vuelvas-a-engordar'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ProtocoloNoVuelvasAEngordarRoute =
+  ProtocoloNoVuelvasAEngordarRouteImport.update({
+    id: '/protocolo-no-vuelvas-a-engordar',
+    path: '/protocolo-no-vuelvas-a-engordar',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +26,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/protocolo-no-vuelvas-a-engordar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/protocolo-no-vuelvas-a-engordar'
+  id: '__root__' | '/' | '/protocolo-no-vuelvas-a-engordar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProtocoloNoVuelvasAEngordarRoute: typeof ProtocoloNoVuelvasAEngordarRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/protocolo-no-vuelvas-a-engordar': {
+      id: '/protocolo-no-vuelvas-a-engordar'
+      path: '/protocolo-no-vuelvas-a-engordar'
+      fullPath: '/protocolo-no-vuelvas-a-engordar'
+      preLoaderRoute: typeof ProtocoloNoVuelvasAEngordarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +71,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProtocoloNoVuelvasAEngordarRoute: ProtocoloNoVuelvasAEngordarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
