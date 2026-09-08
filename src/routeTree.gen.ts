@@ -9,9 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UltimaOportunidadNoVuelvasAEngordarRouteImport } from './routes/ultima-oportunidad-no-vuelvas-a-engordar'
 import { Route as ProtocoloNoVuelvasAEngordarRouteImport } from './routes/protocolo-no-vuelvas-a-engordar'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UltimaOportunidadNoVuelvasAEngordarRoute =
+  UltimaOportunidadNoVuelvasAEngordarRouteImport.update({
+    id: '/ultima-oportunidad-no-vuelvas-a-engordar',
+    path: '/ultima-oportunidad-no-vuelvas-a-engordar',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProtocoloNoVuelvasAEngordarRoute =
   ProtocoloNoVuelvasAEngordarRouteImport.update({
     id: '/protocolo-no-vuelvas-a-engordar',
@@ -27,31 +34,52 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
+  '/ultima-oportunidad-no-vuelvas-a-engordar': typeof UltimaOportunidadNoVuelvasAEngordarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
+  '/ultima-oportunidad-no-vuelvas-a-engordar': typeof UltimaOportunidadNoVuelvasAEngordarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
+  '/ultima-oportunidad-no-vuelvas-a-engordar': typeof UltimaOportunidadNoVuelvasAEngordarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/protocolo-no-vuelvas-a-engordar'
+  fullPaths:
+    | '/'
+    | '/protocolo-no-vuelvas-a-engordar'
+    | '/ultima-oportunidad-no-vuelvas-a-engordar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/protocolo-no-vuelvas-a-engordar'
-  id: '__root__' | '/' | '/protocolo-no-vuelvas-a-engordar'
+  to:
+    | '/'
+    | '/protocolo-no-vuelvas-a-engordar'
+    | '/ultima-oportunidad-no-vuelvas-a-engordar'
+  id:
+    | '__root__'
+    | '/'
+    | '/protocolo-no-vuelvas-a-engordar'
+    | '/ultima-oportunidad-no-vuelvas-a-engordar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProtocoloNoVuelvasAEngordarRoute: typeof ProtocoloNoVuelvasAEngordarRoute
+  UltimaOportunidadNoVuelvasAEngordarRoute: typeof UltimaOportunidadNoVuelvasAEngordarRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ultima-oportunidad-no-vuelvas-a-engordar': {
+      id: '/ultima-oportunidad-no-vuelvas-a-engordar'
+      path: '/ultima-oportunidad-no-vuelvas-a-engordar'
+      fullPath: '/ultima-oportunidad-no-vuelvas-a-engordar'
+      preLoaderRoute: typeof UltimaOportunidadNoVuelvasAEngordarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/protocolo-no-vuelvas-a-engordar': {
       id: '/protocolo-no-vuelvas-a-engordar'
       path: '/protocolo-no-vuelvas-a-engordar'
@@ -72,6 +100,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProtocoloNoVuelvasAEngordarRoute: ProtocoloNoVuelvasAEngordarRoute,
+  UltimaOportunidadNoVuelvasAEngordarRoute:
+    UltimaOportunidadNoVuelvasAEngordarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

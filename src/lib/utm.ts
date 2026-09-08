@@ -53,12 +53,19 @@ export function buildCheckoutUrl(baseUrl: string): string {
 
   if (entries.length === 0) return baseUrl;
 
-  const url = new URL(baseUrl);
-  for (const [key, value] of entries) {
-    url.searchParams.set(key, value);
+  try {
+    const origin = typeof window !== "undefined" ? window.location.origin : "http://localhost";
+    const url = new URL(baseUrl, origin);
+    for (const [key, value] of entries) {
+      url.searchParams.set(key, value);
+    }
+    if (baseUrl.startsWith("/")) {
+      return url.pathname + url.search;
+    }
+    return url.toString();
+  } catch {
+    return baseUrl;
   }
-
-  return url.toString();
 }
 
 /**
