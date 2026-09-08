@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UltimaOportunidadNoVuelvasAEngordarRouteImport } from './routes/ultima-oportunidad-no-vuelvas-a-engordar'
 import { Route as ProtocoloNoVuelvasAEngordarRouteImport } from './routes/protocolo-no-vuelvas-a-engordar'
+import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as IndexRouteImport } from './routes/index'
 
 const UltimaOportunidadNoVuelvasAEngordarRoute =
@@ -25,6 +26,11 @@ const ProtocoloNoVuelvasAEngordarRoute =
     path: '/protocolo-no-vuelvas-a-engordar',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ObrigadoRoute = ObrigadoRouteImport.update({
+  id: '/obrigado',
+  path: '/obrigado',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -33,17 +39,20 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/obrigado': typeof ObrigadoRoute
   '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
   '/ultima-oportunidad-no-vuelvas-a-engordar': typeof UltimaOportunidadNoVuelvasAEngordarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/obrigado': typeof ObrigadoRoute
   '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
   '/ultima-oportunidad-no-vuelvas-a-engordar': typeof UltimaOportunidadNoVuelvasAEngordarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/obrigado': typeof ObrigadoRoute
   '/protocolo-no-vuelvas-a-engordar': typeof ProtocoloNoVuelvasAEngordarRoute
   '/ultima-oportunidad-no-vuelvas-a-engordar': typeof UltimaOportunidadNoVuelvasAEngordarRoute
 }
@@ -51,22 +60,26 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/obrigado'
     | '/protocolo-no-vuelvas-a-engordar'
     | '/ultima-oportunidad-no-vuelvas-a-engordar'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/obrigado'
     | '/protocolo-no-vuelvas-a-engordar'
     | '/ultima-oportunidad-no-vuelvas-a-engordar'
   id:
     | '__root__'
     | '/'
+    | '/obrigado'
     | '/protocolo-no-vuelvas-a-engordar'
     | '/ultima-oportunidad-no-vuelvas-a-engordar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ObrigadoRoute: typeof ObrigadoRoute
   ProtocoloNoVuelvasAEngordarRoute: typeof ProtocoloNoVuelvasAEngordarRoute
   UltimaOportunidadNoVuelvasAEngordarRoute: typeof UltimaOportunidadNoVuelvasAEngordarRoute
 }
@@ -87,6 +100,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtocoloNoVuelvasAEngordarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/obrigado': {
+      id: '/obrigado'
+      path: '/obrigado'
+      fullPath: '/obrigado'
+      preLoaderRoute: typeof ObrigadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -99,6 +119,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ObrigadoRoute: ObrigadoRoute,
   ProtocoloNoVuelvasAEngordarRoute: ProtocoloNoVuelvasAEngordarRoute,
   UltimaOportunidadNoVuelvasAEngordarRoute:
     UltimaOportunidadNoVuelvasAEngordarRoute,

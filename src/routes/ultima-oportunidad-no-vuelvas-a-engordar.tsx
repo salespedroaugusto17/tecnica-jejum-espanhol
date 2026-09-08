@@ -27,7 +27,7 @@ import { buildCheckoutUrl } from "@/lib/utm";
 export const DOWNSELL_CHECKOUT_URL = "https://pay.hotmart.com/YOUR_DOWNSELL_CHECKOUT_CODE";
 
 /** 2. URL de Recusa Final / Página de Agradecimiento o Entrega del producto principal */
-export const DECLINE_URL = "https://tudominio.com/gracias-acceso-principal";
+export const DECLINE_URL = "/obrigado";
 
 /** 3. Imagen del Producto (mismo mockup del upsell) */
 export const PRODUCT_IMAGE_URL = "/manten-tus-resultados.jpg";
