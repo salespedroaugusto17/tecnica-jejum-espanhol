@@ -222,8 +222,6 @@ function CountdownTimer() {
 }
 
 function OfferCard({ gender }: { onCTA?: () => void; gender?: string }) {
-  const parcelado = "2,48";
-  const aVista = "14,90";
   const [checkoutUrl, setCheckoutUrl] = useState("https://pay.hotmart.com/O107345596O?off=r99n5isz&checkoutMode=10");
 
   useEffect(() => {
@@ -232,21 +230,25 @@ function OfferCard({ gender }: { onCTA?: () => void; gender?: string }) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="overflow-hidden rounded-2xl border-2 border-primary">
+      <div className="overflow-hidden rounded-2xl border-2 border-primary bg-background">
         <div className="bg-primary py-2.5 text-center text-sm font-semibold text-primary-foreground">
           De US$ 39,90 por solo 👇
         </div>
-        <div className="flex items-center justify-between gap-4 bg-background p-5">
-          <div className="text-[17px] font-bold leading-tight text-foreground">
-            Plan de Ayuno
-            <br />Personalizado
-          </div>
-          <div className="rounded-lg bg-muted px-4 py-3 text-right">
-            <div className="text-[11px] font-medium text-muted-foreground">6x de</div>
-            <div className="text-xl font-extrabold text-foreground">
-              US$<span className="text-3xl font-black">{parcelado}</span>
+        <div className="p-4 sm:p-5">
+          <div className="flex items-center justify-between gap-4">
+            <div className="text-[17px] font-bold leading-tight text-foreground">
+              Plan de Ayuno
+              <br />Personalizado
             </div>
-            <div className="text-[11px] font-medium text-muted-foreground">O US${aVista} al contado</div>
+            <div className="rounded-lg bg-muted px-4 py-2.5 text-right">
+              <div className="text-[11px] font-medium text-muted-foreground">Hoy por solo</div>
+              <div className="text-xl font-extrabold text-foreground">
+                US$<span className="text-3xl font-black">9,90</span>
+              </div>
+            </div>
+          </div>
+          <div className="mt-3 border-t border-border/60 pt-2.5 text-center text-[11px] sm:text-xs font-medium text-muted-foreground">
+            Pago único • Sin mensualidades • Acceso de por vida
           </div>
         </div>
       </div>
